@@ -27,6 +27,67 @@
         sup { font-size: 0.8em; vertical-align: super; color: #888; }
         strong { font-weight: bold; color: #111; }
         em { font-style: italic; }
+    
+    /* Mobile-Optimized Typography & Reading Rules */
+    @media (max-width: 680px) {
+        body {
+            padding: 1.2rem 1rem !important;
+            font-size: 18px !important;
+            line-height: 1.48 !important;
+        }
+        header {
+            margin-bottom: 2rem !important;
+            padding-bottom: 16px !important;
+        }
+        h1 {
+            font-size: 1.85rem !important;
+            line-height: 1.2 !important;
+        }
+        h2 {
+            font-size: 1.45rem !important;
+            line-height: 1.25 !important;
+            margin-top: 2.5rem !important;
+        }
+        h3 {
+            font-size: 1.2rem !important;
+            margin-top: 1.6rem !important;
+        }
+        p {
+            font-size: 18px !important;
+            line-height: 1.48 !important;
+            text-indent: 1.4em !important;
+        }
+        h2 + p, h3 + p, .eng-subtag + p, .chapter-intro + p, .book-figure + p, section > p:first-of-type {
+            text-indent: 0 !important;
+        }
+        .book-figure {
+            margin: 1.5rem 0 !important;
+        }
+        .book-figure img,
+        .book-figure img.inline-img,
+        .book-figure img.plate-img,
+        .book-figure img.full-img {
+            max-width: 100% !important;
+            width: 100% !important;
+            height: auto !important;
+        }
+        blockquote, .novel-quote {
+            margin: 1.2rem 0 1.2rem 0.6rem !important;
+            padding: 0.6rem 0.8rem !important;
+        }
+        .chapter-intro {
+            margin: 1.2rem 0 !important;
+            padding: 0.8rem 1rem !important;
+        }
+        #library-nav-bar {
+            padding: 8px 12px !important;
+            font-size: 0.8rem !important;
+        }
+        #library-nav-bar span {
+            display: none !important;
+        }
+    }
+
     </style>
 </head>
 <body>
