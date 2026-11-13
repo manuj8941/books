@@ -1,30 +1,160 @@
 <!DOCTYPE html>
+
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Why the Poor Don’t Kill Us - Manu Joseph</title>
-    
-<style>
-    body {
-        font-family: 'Georgia', 'Liberation Serif', serif;
-        line-height: 1.6;
-        color: #222;
-        background-color: #fdfdfd;
-        margin: 0 auto;
-        max-width: 760px;
-        padding: 40px 20px;
-        text-align: left;
-    }
-    h1 { font-size: 2.2em; text-align: center; margin-bottom: 0.2em; color: #111; }
-    h2 { font-size: 1.5em; margin-top: 2em; margin-bottom: 0.8em; border-bottom: 1px solid #e0e0e0; padding-bottom: 0.3em; color: #333; }
-    h3 { font-size: 1.2em; margin-top: 1.5em; margin-bottom: 0.5em; color: #444; }
-    p { margin: 0 0 1em 0; text-align: left; }
-    blockquote { margin: 1.2em 2em; padding: 0.5em 1em; border-left: 3px solid #ccc; font-style: italic; color: #444; text-align: left; }
-    blockquote p { margin: 0.5em 0; }
-    .star-break { text-align: center; margin: 1.8em 0; font-size: 1.2em; letter-spacing: 0.4em; color: #666; }
-    .author { text-align: center; font-size: 1.2em; font-style: italic; color: #555; margin-bottom: 2em; }
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Why the Poor Don’t Kill Us - Manu Joseph</title>
 
+ <link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Libre+Franklin:wght@400;500;600;700;800&amp;family=Newsreader:ital,opsz,wght@0,6..72,400;0,6..72,500;0,6..72,600;0,6..72,700;1,6..72,400;1,6..72,600&amp;display=swap" rel="stylesheet"/><style>* { box-sizing: border-box; }
+        body {
+            font-family: 'Newsreader', Georgia, 'Times New Roman', serif;
+            font-size: 19px;
+            line-height: 1.35;
+            color: #121212;
+            background-color: #FBFAF8;
+            max-width: 900px;
+            margin: 0 auto;
+            padding: 3rem 2rem;
+            text-align: left;
+        }
+        header {
+            text-align: center;
+            margin-bottom: 3.5rem;
+            border-bottom: 1px solid #121212;
+            padding-bottom: 24px;
+            position: relative;
+        }
+        header::after {
+            content: "";
+            position: absolute;
+            left: 0;
+            right: 0;
+            bottom: -4px;
+            height: 1px;
+            background: #121212;
+        }
+        h1 {
+            font-family: 'Newsreader', Georgia, serif;
+            font-size: 2.5rem;
+            font-weight: 700;
+            letter-spacing: -0.02em;
+            margin-bottom: 0.5rem;
+            text-transform: uppercase;
+            color: #121212;
+        }
+        .subtitle {
+            font-family: 'Libre Franklin', system-ui, sans-serif;
+            font-size: 0.95rem;
+            text-transform: uppercase;
+            letter-spacing: 0.12em;
+            color: #555;
+            margin-bottom: 0.8rem;
+            font-weight: 600;
+        }
+        .author {
+            font-family: 'Newsreader', Georgia, serif;
+            font-size: 1.15rem;
+            font-style: italic;
+            color: #222;
+        }
+        .card-kicker {
+            font-family: 'Libre Franklin', system-ui, sans-serif;
+            font-size: 0.8rem;
+            font-weight: 800;
+            text-transform: uppercase;
+            letter-spacing: 0.12em;
+            color: #727272;
+            margin-top: 4rem;
+            margin-bottom: 0.4rem;
+        }
+        h2 {
+            font-family: 'Newsreader', Georgia, serif;
+            font-size: 2.1rem;
+            font-weight: 700;
+            letter-spacing: -0.015em;
+            border-bottom: 1px solid #121212;
+            padding-bottom: 0.5rem;
+            margin-top: 0.5rem;
+            margin-bottom: 1.2rem;
+            color: #121212;
+            text-align: left;
+        }
+        h3 {
+            font-family: 'Newsreader', Georgia, serif;
+            font-size: 1.4rem;
+            font-weight: 600;
+            margin-top: 2rem;
+            margin-bottom: 0.5rem;
+            color: #121212;
+            text-align: left;
+        }
+        p {
+            font-size: 19px;
+            line-height: 1.35;
+            margin-top: 0;
+            margin-bottom: 0px;
+            text-indent: 1.8em;
+            text-align: left;
+            color: #121212;
+        }
+        /* First paragraph under headings or figures is never indented */
+        h2 + p,
+        h3 + p,
+        .book-figure + p,
+        section > p:first-of-type {
+            text-indent: 0;
+        }
+        .book-figure {
+            margin: 2.2rem 0;
+            text-align: center;
+        }
+        .book-figure img.full-img {
+            max-width: 100%;
+            height: auto;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+        }
+        .book-figure img.inline-img,
+        .book-figure img.plate-img {
+            max-width: 85%;
+            height: auto;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            box-shadow: 0 4px 14px rgba(0,0,0,0.06);
+        }
+        .book-figure .caption {
+            font-family: 'Libre Franklin', system-ui, sans-serif;
+            font-size: 0.85rem;
+            color: #555;
+            margin-top: 0.6rem;
+            text-indent: 0;
+            text-align: center;
+            font-style: italic;
+        }
+        .toc-list {
+            font-family: 'Libre Franklin', system-ui, sans-serif;
+            list-style-type: none;
+            padding-left: 0;
+            margin: 1.5em 0 2.5em 0;
+            line-height: 2.1;
+        }
+        .toc-list li {
+            margin-bottom: 0.5em;
+            font-size: 1rem;
+            font-weight: 500;
+        }
+        .toc-list a {
+            text-decoration: none;
+            color: #121212;
+            border-bottom: 1px dotted #999;
+        }
+        .toc-list a:hover {
+            border-bottom: 1px solid #121212;
+        }
+    
     /* Mobile-Optimized Typography & Reading Rules */
     @media (max-width: 680px) {
         body {
@@ -85,23 +215,71 @@
         }
     }
 
-    </style>
-</head>
+        figure.book-image {
+            text-align: center;
+            margin: 2.2rem auto;
+            max-width: 100%;
+        }
+        figure.book-image img {
+            max-width: 85%;
+            height: auto;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            box-shadow: 0 4px 14px rgba(0,0,0,0.06);
+        }
+        figcaption {
+            font-family: inherit;
+            font-size: 0.85rem;
+            color: #555;
+            margin-top: 0.6rem;
+            text-indent: 0;
+            text-align: center;
+            font-style: italic;
+        }
+        blockquote {
+            margin: 1.4rem 0 1.4rem 1.2rem;
+            padding: 0.6rem 1.2rem;
+            border-left: 3px solid #121212;
+            font-style: italic;
+            color: #2b2b2b;
+        }
+        blockquote p {
+            margin: 0.4rem 0;
+            text-indent: 0;
+        }
+        .timeline-entry {
+            margin-bottom: 0.6em;
+            font-size: 0.95rem;
+            line-height: 1.4;
+        }
+        .note-item {
+            font-size: 0.9rem;
+            margin-bottom: 0.6em;
+            text-indent: -1.5em;
+            padding-left: 1.5em;
+            line-height: 1.35;
+        }
+        .star-break {
+            text-align: center;
+            margin: 1.8em 0;
+            font-size: 1.2em;
+            letter-spacing: 0.4em;
+            color: #666;
+        }
+</style></head>
 <body>
 <div id="library-nav-bar" style="position: sticky; top: 0; z-index: 9999; background: #121212; color: #ffffff; padding: 10px 20px; display: flex; justify-content: space-between; align-items: center; font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif; font-size: 0.85rem; box-shadow: 0 2px 10px rgba(0,0,0,0.15); border-bottom: 1px solid #333;">
-    <a href="../index.html" style="color: #ffffff; text-decoration: none; font-weight: 700; display: inline-flex; align-items: center; gap: 6px;">
-        &larr; Digital Library / मुख्य पुस्तकालय
+<a href="../index.html" style="color: #ffffff; text-decoration: none; font-weight: 700; display: inline-flex; align-items: center; gap: 6px;">
+        ← Digital Library / मुख्य पुस्तकालय
     </a>
-    <span style="color: #94a3b8; font-size: 0.78rem; text-transform: uppercase; letter-spacing: 0.08em;">
+<span style="color: #94a3b8; font-size: 0.78rem; text-transform: uppercase; letter-spacing: 0.08em;">
         Manu Joseph • Why the Poor Don't Kill Us
     </span>
 </div>
-
-    <h1>Why the Poor Don’t Kill Us</h1>
-    <div class="author">By Manu Joseph</div>
-
-    <section class="front_matter">
-        <p><strong>WHY THE POOR DON’T KILL US</strong></p>
+<h1>Why the Poor Don’t Kill Us</h1>
+<div class="author">By Manu Joseph</div>
+<section class="front_matter">
+<p><strong>WHY THE POOR DON’T KILL US</strong></p>
 <p>Manu Joseph</p>
 <p>Also by Manu Joseph</p>
 <blockquote><p><em>Serious Men The Illicit Happiness of Other People Miss Laila, Armed and Dangerous</em></p></blockquote>
@@ -120,37 +298,34 @@
 <p><em>Why the Poor Don’t Kill Us</em> lays bare, with pitiless precision, the absurd, obvious and counter-intuitive reasons why we are safe. So far. It is a fragile peace, and we need to understand how it has come to be.</p>
 <h3>About the author</h3>
 <p>Manu Joseph is a former columnist for the New York Times. He is also a novelist and screenwriter. He is the author of the novels Serious Men, The Illicit Happiness of Other People, and Miss Laila, Armed and Dangerous. He is the winner of the Hindu Literary Prize and the PEN Open Book Award, whose jury described him as ‘…that rare bird who can wildly entertain the reader as forcefully as he moves them’. He has been nominated for several other prizes. He is also the creator of the Netflix series, Decoupled. This is his first “non-fiction”.</p>
-    </section>
+</section>
+<section class="front_matter" id="contents">
+<h2 id="contents_heading">CONTENTS</h2>
 
-    <section class="front_matter">
-        <h2>CONTENTS</h2>
-<p>1. Who Is Poor? 7</p>
-<p>2. Why the Poor Don’t Kill Us 17</p>
-<p>3. How We Provoke 26</p>
-<p>4. How India’s Chaos and Ugliness Reassure the Poor 40</p>
-<p>5. If You Do Well in Exams, You Will Escape… 48</p>
-<p>6. The Poor Are the Worst Enemies of the Poor 64</p>
-<p>7. The Dark Force That Guards Us 71</p>
-<p>8. The Defeat of the Amateur Indian, and His World Framed in English 76</p>
-<p>9. How Hate United Rich and Poor 85</p>
-<p>10.Why the Poor Love Politicians 98</p>
-<p>11.How a Billionaire and Career Politicians Saved Aadhaar from Amateur Indians 105</p>
-<p>12. Let the Poor Have Fun 117</p>
-<p>13.What Moneylenders Know 127</p>
-<p>14.The Newly Rich Village 143</p>
-<p>15.Despite India 149</p>
-<p>16.A Theory About How Good and Bad Things Happen 159</p>
-<p>17.Revenge of the Poor 169</p>
-<p>18.Inequality Cannot Be Solved 176</p>
-    </section>
 
-    <section class="front_matter">
-        <h2>AUTHOR’S NOTE</h2>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<ul class="toc-list"><li><a href="#authors_note">AUTHOR’S NOTE</a></li><li><a href="#ch_01">CHAPTER 1: WHO IS POOR?</a></li><li><a href="#ch_02">CHAPTER 2: WHY THE POOR DON’T KILL US</a></li><li><a href="#ch_03">CHAPTER 3: HOW WE PROVOKE</a></li><li><a href="#ch_04">CHAPTER 4: HOW INDIA’S CHAOS AND UGLINESS REASSURE THE POOR</a></li><li><a href="#ch_05">CHAPTER 5: IF YOU DO WELL IN EXAMS, YOU WILL ESCAPE…</a></li><li><a href="#ch_06">CHAPTER 6: THE POOR ARE THE WORST ENEMIES OF THE POOR</a></li><li><a href="#ch_07">CHAPTER 7: THE DARK FORCE THAT GUARDS US</a></li><li><a href="#ch_08">CHAPTER 8: THE DEFEAT OF THE AMATEUR INDIAN, AND HIS WORLD FRAMED IN ENGLISH</a></li><li><a href="#ch_09">CHAPTER 9: HOW HATE UNITED RICH AND POOR</a></li><li><a href="#ch_10">CHAPTER 10: WHY THE POOR LOVE POLITICIANS (Or How Politicians Protect Us From the Poor)</a></li><li><a href="#ch_11">CHAPTER 11: HOW A BILLIONAIRE AND CAREER POLITICIANS SAVED AADHAAR FROM AMATEUR INDIANS</a></li><li><a href="#ch_12">CHAPTER 12: LET THE POOR HAVE FUN</a></li><li><a href="#ch_13">CHAPTER 13: WHAT MONEYLENDERS KNOW</a></li><li><a href="#ch_14">CHAPTER 14: THE NEWLY RICH VILLAGE</a></li><li><a href="#ch_15">CHAPTER 15: DESPITE INDIA</a></li><li><a href="#ch_16">CHAPTER 16: A THEORY ABOUT HOW GOOD AND BAD THINGS HAPPEN</a></li><li><a href="#ch_17">CHAPTER 17: REVENGE OF THE POOR</a></li><li><a href="#ch_18">CHAPTER 18: INEQUALITY CANNOT BE SOLVED</a></li></ul></section>
+<section class="front_matter" id="sec_authors_note">
+<h2 id="authors_note">AUTHOR’S NOTE</h2>
 <p>This book is about how people behave, framed narrowly by a mystery—why is there peace between the classes in one of the most unequal regions on Earth?</p>
-    </section>
-
-    <section class="chapter">
-        <h2>CHAPTER 1: WHO IS POOR?</h2>
+</section>
+<section class="chapter" id="sec_ch_01">
+<h2 id="ch_01">CHAPTER 1: WHO IS POOR?</h2>
 <p>ON the morning of 26 January 2001, a massive earthquake struck western India. Twenty hours later, I was in Bhuj, in Gujarat, very close to the epicentre. Among the first people I met was a man who stood on top of the debris of his home. His wife and children were trapped in the rubble. The army was yet to arrive and there was no rescue operation underway. He said he could hear his family occasionally call for help. They would fall silent for a long period, then he would hear them again. His home had sunk into the foundation, so his family was probably deeper inside than it appeared from ground level. I did not know how to speak to a man in such a situation. I was twenty-five. I thought I would leave him alone. I turned to a bystander and asked for directions to a public ground, where I had heard there was a medical camp. But the man whose family was buried beneath his feet intervened and began to give me directions in a very elaborate way, his fingers telling me where I should turn left and where I should turn right. I am certain there are theories to explain his behaviour, but we will never know what was going on in his mind. When I left him, he just stood there, like a man waiting for a bus.</p>
 <p>Over the next few days, the photographer I accompanied, Prashant Panjiar, was approached several times by people, chiefly men, who asked him to take pictures of their dead, chiefly women. We were at first perplexed by this behaviour but soon realized that they were asking him to take the pictures as proof of death because in a natural calamity like this, a press photograph was as good as a death certificate. Men whose wives were photographed dead could then remarry. Adult children of parents who were photographed dead could settle property matters. How do people get to know such municipal bylaws hours after they have lost their own? One time, a man at a funeral waved at us, and requested us to shoot him against the backdrop of the burning pyre of his dead brother. (There were so many bodies that people were allowed to burn their dead anywhere.) It was the man’s bad luck that he couldn’t find us before he had consigned his brother to the flames. He was in his brother’s will, he said, and he needed photographic evidence of the funeral pyre. How could the image of a funeral pyre help him establish a specific death? Apparently he had a point. It would work, in a situation like this.</p>
 <p>Later, in Anjar, where more than 400 children had perished in their school, I saw a man sitting on top of a cupboard that stood tilted on rubble. In that rubble was the body of his sixteen-year-old brother. He was breaking the cupboard with a knife. He told me there were jewels, money, and perfume bottles inside. He wanted to extract them before the army got to them. Later, a soldier would tell me, ‘Once they realize their family is dead, they quickly think of what to do next.’ He was disturbed; he said he had not seen this sort of mass behaviour before.</p>
@@ -180,10 +355,9 @@
 <p>India’s poor are not only poor, they are poor in one of the most unequal regions on Earth. All around them, there is money sloshing about. I live in a colony that probably has the per capita income of an advanced nation. The tailor in the local market alters trousers for fifty rupees; I have seen some people try to bargain it down.</p>
 <p>Some of India’s poor do react violently to the inequality. The poor do kill. In 2016, my friend was raped and murdered in her home, in Goa. The murderer was a ‘security guard’, one of those poor men whom we squeeze into the fancy dress of a paramilitary outfit. He had held her responsible for his sacking. He hid on the terrace of the apartment block and eventually gained entry into her house. After the murder, he stole her ATM card and was so naive that he actually used it—the reason why he was nabbed within days of the crime.</p>
 <p>There are daily robberies and crime born out of hate and deprivation. Even so, India is one of the safest nations for the middle classes and the rich. That is odd. When I say, ‘why the poor don’t kill us’, I do mean why they do not rise in violent revolt, but I also mean it as a form of wonder. Also, I mean to ask why they don’t overthrow us in non-violent ways, in ways that are not known as revolts. But even in this form of revolt they are, mysteriously, not as aggressive as they should be. It is as though they are overrating our forts, our power to fight back.</p>
-    </section>
-
-    <section class="chapter">
-        <h2>CHAPTER 2: WHY THE POOR DON’T KILL US</h2>
+</section>
+<section class="chapter" id="sec_ch_02">
+<h2 id="ch_02">CHAPTER 2: WHY THE POOR DON’T KILL US</h2>
 <p>WHEN I was in college, I read Nani Palkhivala, who was always described as an ‘eminent jurist’. I had a lot of respect then for anyone who was called ‘eminent’. I was twenty-one when I finally met him. He was by then an old man. He told me India’s poor were wonderful people. He conveyed that nonsensical praise rich Indians and foreigners often give the poor—‘so hospitable’. The eminent jurist turned out to be yet another affluent Indian simpleton. The inner beauty of India’s poor is a popular mainstream opinion. There would be many Indians, today, who would with flared noble nostrils say the poor do not kill the rich because the poor are such wonderful folk. It is not that I dispute this view; it is just that the visible niceness of the poor is nothing virtuous—it is a consequence of compulsion. As in love, so in society, people who do not have power are quite nice. And in the case of the poor, it is another layer of retardation inflicted on them through very low self-worth.</p>
 <p>A bit of that submission of the poor is also plain acting. As foolish as it is to assume that the poor are made of milk and honey, is the suspicion of rich India, expressed and secret, that the poor are prone to criminality and violence, and that they are kept in check only by religious or other mystical forces, and of course, the fear of the law. In my view, human beings are not intrinsically good or evil. I think they are intrinsically cautious. This caution has the appearance of a virtue, or maybe it really is a virtue. Maybe that is all there is to being humane—a sort of caution. Whatever it is, it is good enough for peace. It is good enough for India’s poor to shun violence or even abhor it. But it is also true that the poor are reined in by powerful forces, like the many leashes of morality, and the promises of hope that the rich have consciously and unconsciously designed to control the poor, to make them fall in line.</p>
 <p>There are reasons why the poor don’t revolt that are not so obvious. In this book, I chiefly discuss those reasons. Let’s begin.</p>
@@ -224,10 +398,9 @@
 <p>Our darkest fears come true in some people, and we expect them to be miserable. But are the unlucky as miserable as other people think? Is it possible that the bereaved and the disabled, the jailed and the whores, and most people who are said to be tragic, are somewhat better than what the others think? Can it be that the poor, too, are fine and that they may even be happy? After all, an unsung cause of human happiness is low standards. For friends, for the spouse, for the nation. Maybe, just like some people find misery in everything, most people are programmed to find joy in their lives no matter what. Maybe, the poor are not as miserable as we fear. The persistence of happiness, the inevitability of happiness, maybe that, too, protects us.</p>
 <p>IN this book, you will read more about these reasons, and several other reasons that are yet to be mentioned, all of them explaining what keeps the peace between the classes.</p>
 <p>But this peace is fragile.</p>
-    </section>
-
-    <section class="chapter">
-        <h2>CHAPTER 3: HOW WE PROVOKE</h2>
+</section>
+<section class="chapter" id="sec_ch_03">
+<h2 id="ch_03">CHAPTER 3: HOW WE PROVOKE</h2>
 <p>INDIA’S public character comes from its poor. India is the way it is, chiefly because of its poor. On its part, India treats its poor like they are poor. This is India’s central flaw. The poor have very low standards for themselves. They can squeeze into a steaming, humid, unreserved train compartment, so many of them per square foot that if they were cows it would be illegal to transport so many in that space, and they can travel like this for days. They even travel inside cement-mixers. They can wait for a bus for hours. They walk extraordinary distances in the sun, carrying heavy objects and humans, if they don’t have a choice. As a reporter, I used to frequently encounter an attitude that concerned air conditioning. That the poor do not ‘deserve’ air conditioning. Not only because they will not pay for it, but also because they do not expect to be so well treated. Almost all of India is hot most of the year, and the summers are scorching and long, yet most offices and modes of public transport are not air-conditioned. India is not protecting the environment; just that it perceives air conditioning as a luxury, and its unspoken policy is that Indians need not be treated with luxuries. That is how India has trained the poor to think, and this is how the poor have shaped India to treat them.</p>
 <p>In the heart of all the good that India tries to do—not only through policy but also through pious activism—there is this unspoken sense that low standards ‘will do’ for the poor. India’s very definition of comfort is a state that is inaccessible to the poor.</p>
 <p>The low standards for the poor are embedded in all the cures that India prescribes for poverty. It begins in the faulty middle-class academic conjecture of what the poor want. There is this consecration of food, a certain cultural oversensitivity to the act of eating. Not a surprise, then, that the moment there is a crisis, the government announces that every poor person will get bags of starch.</p>
@@ -278,10 +451,9 @@
 <p>In India, people who rate themselves as happy are much happier than those who say they are unhappy. This shows up a country where life is very good for some and miserable for the poor; a region where it is vastly advantageous to be born in the right home, and a severe handicap not to be so lucky.</p>
 <p>If your memory is as good as mine, there was a time when intellectuals promoted Bhutan as the happiest place on Earth. In the 2013 Hindi film, <em>The Lunchbox</em>, an unhappy woman in Mumbai plots to flee to Bhutan in search of joy. It was the Bhutanese king Jigme Singye Wangchuck who popularized the idea of ‘Gross National Happiness’ in 1972, when his reign began. In the 2000s, this abstract idea caught the imagination of liberal economists who thought they had found a tool to defame the focus on economic growth. But, it turns out, Bhutanese people themselves do not rate themselves very highly on the happiness scale. The first World Happiness Report, published in 2012, pays rich tribute to Bhutan through the scholars who crafted the report to rebuke capitalism, but the average Bhutanese themselves ranked their nation low. Apparently, the Bhutanese are not as happy as everybody thought. It is Western Europe that has consistently regarded itself happy.</p>
 <p>The moral of the story is that the secret to happiness may lie in colonizing, brutalizing, and plundering vast regions of the world so that you can one day raise a financially pampered and socially compassionate population that cycles to work.</p>
-    </section>
-
-    <section class="chapter">
-        <h2>CHAPTER 4: HOW INDIA’S CHAOS AND UGLINESS REASSURE THE POOR</h2>
+</section>
+<section class="chapter" id="sec_ch_04">
+<h2 id="ch_04">CHAPTER 4: HOW INDIA’S CHAOS AND UGLINESS REASSURE THE POOR</h2>
 <p>THERE is a difference in the circumstances of European nobodies and Indian nobodies. In Western Europe, the nobodies are in ghettos of abject failure surrounded by a mainstream society that is, in plain sight, happy and thriving. The city centres are gorgeous, joyous, usually ancient, and a creation of the same race that is the economically dominant one today. All public places look a lot better than the private spaces of the poor. The poor in a rich country are like a bitter Reddit page trapped inside Instagram. Grand symbols of progress, like giant cable-stayed bridges and beautiful buildings, visually emphasize the failures of the losers. In the new disenchantment among Western Europe’s poor, such as in France and Belgium, we should not underestimate the role of the spectacular urban beauty of the great cities in the region. Even though the poor of Europe enjoy a quality of public life that is, in some regards, superior to the private lives of Indian millionaires in Mumbai or Gurugram, they cannot escape the gloom of being in proximity to a glowing mainstream. In a rich country, those who consider themselves poor feel that the nation has left them behind. Their poverty always has a human villain.</p>
 <p>The Indian nobodies see a very different world. They, of course, see the glitter of the rich, the decadence of the young in long cars, and the illuminated fine-dining behind glass windows, but it is the rich who are in their cages, and it is the classy who are confused about their idea of home. Most of the nation belongs to the nobodies; it is a republic of nobodies.</p>
 <p>India’s roads are among the freest places on Earth. There is a national feeling that lanes are imaginary lines, like the equator. People drive on the wrong side of the road and abuse you for not giving way. Google Maps itself has been so confused by Indians that it has asked me, at least once, to drive on the wrong side. Yet, Indians are surprised when things go wrong. Observe the guy who has been driving like a moron and has finally crashed—he is stunned. People cross the road like cows and they are baffled by the appearance of a car—a car on the road, how? People cross the railway track at will, and they are shocked to see a train thundering towards them. A train on a railway track, how? Surprise is our national emotion; surprise at the most logical outcome of our actions. Maybe Indians are surprised because at some deep, unconscious level there is an elegant reason why they chose disorder over order, and were not expecting punishment for it.</p>
@@ -308,10 +480,9 @@
 <p>I live in Gurugram, one of the richest cities in India. Six feet above the ground, when no Indian is in the frame, parts of Gurugram look First World. But at the ground level, it is like any other urban mess of the nation. There are heaps of garbage on the road. Traffic signals hide behind trees, traffic cops too, waiting to pounce on some guy. Most roads do not have markers for pedestrians to cross and most Indians never really cross the road; rather, they flee death with that sheepish expression of being encroachers in their own city. And the face of the government, the police, elicit no respect, not only because they are perceived as corrupt, but also because of how they look—how they wear their uniforms, often with slippers, and how they place barricades squeezing dense traffic into zig-zag formations—India’s definition of ‘security’—and how they sit on the roadside on plastic chairs, their large paunches like babies on their laps; and how six of them hide under flyovers to pounce on motorists in the great game that is the Indian daily life. How do they find those plastic chairs? Do they bring them from home?</p>
 <p>Usually, Indian politicians do not try to reform Indians. It is too risky. Modi was brave and self- confident to be the face of hefty fines on Indians for things they may have thought were their birthright, like disbelieving the myth of lanes, pedestrian crossings, and other posh white markings on the road. But even he did not push beyond a point. He has now given up. I feel that a society has to come naturally to a point where public order does not make its people feel as though they are encroaching into foreign culture. Indians were ready with the advent of the Delhi Metro in 2002 to endure order for about an hour of commute. But we are not there yet to endure it for many hours a day—on the roads. But what the Delhi Metro tells me is that a day can come, at some point in the future, when Indian roads are uniform, standardized, efficient, swanky, and well-designed. In their civic affluence, and repression of rules, Indians will finally concede that maybe this is not as foreign as they once thought, that this is a better way to live.</p>
 <p>Until then, our vast aesthetic poverty will remind the average Indian that he belongs here; the nation has not left him behind.</p>
-    </section>
-
-    <section class="chapter">
-        <h2>CHAPTER 5: IF YOU DO WELL IN EXAMS, YOU WILL ESCAPE…</h2>
+</section>
+<section class="chapter" id="sec_ch_05">
+<h2 id="ch_05">CHAPTER 5: IF YOU DO WELL IN EXAMS, YOU WILL ESCAPE…</h2>
 <h3>How the false hope of higher education calms the poor</h3>
 <p>In 2006, I set out to find out who exactly were the Indian nuclear scientists. I went to Mumbai’s Bhabha Atomic Research Centre (BARC). In this sprawling establishment of India’s nuclear programme that stood on the edge of a creek, shrouded by mangroves and official secrets, there was an unmistakable touch of middle-class India. Here, security primarily meant jobs.</p>
 <p>To the urban upper-class youth, India’s atomic technology may be a glorious taunt to the world, but the truth is that they almost never apply. Nor do the graduates from the revered Indian Institutes of Technology and the next two or three layers of Indian engineering’s top soil. For some time now, this country’s nuclear programme has been run by valiant strugglers from villages and small towns who mostly come from colleges not many have heard of.</p>
@@ -370,10 +541,9 @@
 <p>INDIANS can see this clearly, but they cannot get rid of the stigma of not possessing a college degree. Prime Minister Narendra Modi himself has been accused of faking two college degrees. The way people have scorned Modi for the probability that he never went to college, it is as though they possessed some great intelligence or skill to walk into college. It is particularly amusing when those who scorn are graduates in the humanities. It takes little effort to get an arts degree. Almost all Indians got into college because they filled an application form and their parents paid their entire fees. And most emerged from college with no special skill or knowledge. You may argue that the issue is not whether college matters, but in the deception. But any Indian faking an arts degree is only responding to an evil force. The prestige attached to college degrees is a caste system. All educated Indians are complicit in this. The hope contained in a college degree has faded for the poor. As a result, in the future its pursuit will cease to be among the factors that maintain the peace of the classes.</p>
 <p>Indian politicians have begun to address this. In July 2022, Modi gave a speech to educators who had assembled to discuss the implementation of the National Educational Policy. He said that modern India’s education system ‘emerged from slavery’. And that its objective was petty. ‘The British, in their self- interest, set up a system of education that was meant to incubate a servant class.’ He said very little has changed since the colonizers left. And that it was time India created more useful people than ‘degree-holders’.</p>
 <p>I AM not entirely against the false hope of education. Because I feel most of hope is false and that is all right. (In fact, when people say, ‘believe in yourself’ they mean, ‘be delusional’. But it works.) But the time of education’s false hope is up. It is not fooling the poor any more, but at the same time, they do not have anything better to latch on to. We need to replace it with some other aspiration.</p>
-    </section>
-
-    <section class="chapter">
-        <h2>CHAPTER 6: THE POOR ARE THE WORST ENEMIES OF THE POOR</h2>
+</section>
+<section class="chapter" id="sec_ch_06">
+<h2 id="ch_06">CHAPTER 6: THE POOR ARE THE WORST ENEMIES OF THE POOR</h2>
 <p>THE general perception of envy is that it is a reaction of the deprived to those who have everything. Even India’s most famous intellectual, Chanakya, had this view: ‘only lazy and poor people’ develop envy, and that ‘prostitutes envy loyal women, and widows envy married women’. This is a wrong analysis of human nature. Envy is a thing between equals.</p>
 <p>Whom do you envy? Not whom you think you should envy, but whom do you actually envy? Chances are you don’t envy Elon Musk or Mukesh Ambani, or any other billionaire (assuming you are not one yourself, in which case you would be envying other billionaires). You are more likely to envy your neighbours, colleagues, cousins, siblings, or spouse, or all of them. Chanakya had got this totally wrong. A prostitute is more likely to be envious of a more beautiful prostitute than ‘a loyal woman’ who is not in the trade.</p>
 <p>The Greek poet Hesiod agrees with me in <em>Works and Days</em> (in a translation by Hugh G. Evelyn-White) ‘...potter is angry with potter, and craftsman with craftsman, and beggar is jealous of beggar, and minstrel of minstrel.’</p>
@@ -399,10 +569,9 @@
 <p>Consider the provincial students who are now taking over engineering colleges and against whom the old urban elite cannot compete in entrance exams. Listen carefully to how the refined condemn the new elite engineering students—as merely exam-crackers, who have no other talent, who can’t speak English, who don’t read novels, who don’t quiz, or play Carnatic music. Have you gone back to your alma mater recently, and covertly found the new students there shockingly ‘downmarket’ and did you instead express your thought as a noble concern for how ‘the standards have fallen’? These are all sophisticated ways of hating ‘the migrant’, the poor outsider, who is encroaching on your turf, your culture, your way of life, and your resources and the resources of your children.</p>
 <p>(Also, the new type of politicians and scholars who have taken over Lutyens’ Delhi—they are the new spatial and cultural migrants. This is the very reason why conscientious economists and other humanities professors who claim to have compassion for immigrants hate the new rustic, nationalistic, and vernacular academics.)</p>
 <p>The hatred for the potent migrant is very severe among the poor locals of a region because they undercut their wages, bring in more of their own, and form a tight community that makes them an even more formidable job market. And, of course, the migrant is usually a bit poorer than the local poor.</p>
-    </section>
-
-    <section class="chapter">
-        <h2>CHAPTER 7: THE DARK FORCE THAT GUARDS US</h2>
+</section>
+<section class="chapter" id="sec_ch_07">
+<h2 id="ch_07">CHAPTER 7: THE DARK FORCE THAT GUARDS US</h2>
 <p>In the feature film version of this book, a man gets obsessed with the question, ‘why don’t the poor kill us?’ The absurdity of why the poor don’t invade and destroy his affluent colony confuses him to the point that it begins to ruin his quiet life. Producer Arya Menon sent a pitch to the actor Saif Ali Khan’s manager. A few weeks later, the actor was stabbed by a poor migrant inside his own home, as though the poor wished to refute my theories.</p>
 <p>After the stabbing incident, the Indian middle classes had an obvious question. If a film star can be stabbed by an intruder in his home, that too in a luxury apartment in one of the safest suburbs of one of the safest cities in the country, what does it say about our safety and that of those whom we love? There is a reassuring answer, but it comes from a dark place. When Khan was in hospital, there was a familiar sight outside. His family and friends emerged from cars. There was a glow about them, and some of them wore clothes that didn’t look like clothes. They walked through a parted crowd of onlookers who looked like the rest of India, more provincial, and with no glow. Like Saif Ali Khan, many of us live in secure buildings, with cameras, some of which may also work. In the care of guards who were probably farmhands not long ago. They do protect us, but our primary protection, the thing that really guards us, is something else, something ancient maybe. It is not exactly noble, which is also why it works.</p>
 <p>The attack on Khan was an aberration. Generally, India is safe for its rich and the middle class. Safe as in safe from criminal danger. You could end up dead on the road because of India’s road design or how Indians drive, or lose your life to lax enforcement of safety protocols in buildings, but we do not usually need to worry about criminals. In some aspects, we are safe not only compared to middle-income countries in Africa and Latin America, but also in comparison with the West.</p>
@@ -418,10 +587,9 @@
 <p>They might be mentally disturbed, or they might be desperate drug addicts who do not think rationally. Often, the guy who manages to breach security and walk into a building does so in the most irrational way. He just walks in. Most of the time, irrational criminals are apprehended, but it is of little consequence to the victims.</p>
 <p>Even in this regard, India’s roughness protects the upper class. Indian life is a natural filtering process. People who are clinically dangerous, especially if they are poor, do not survive too long. They are killed by the community. Or, they just die alone of neglect and disease. In comparison, more just societies like the United States and Europe appear to have more empowered dangerous people.</p>
 <p>In December 2024, a man just walked into a New York subway train and burned a woman alive, a woman he had never known. A few days after that in New York, a man pushed another onto the subway tracks. It’s not as though these things cannot happen here, but for a nation of this size and circumstance, Indian cities appear to witness far less mindless crimes. But I wonder how long Indian cities can maintain their relative safety in a changing world where there is more compassion for the poor and the unstable, and the dangerous among them can survive far longer than before. What will happen when India finds it hard to be as brutal as before in those unseen rooms where parallel justice is dealt?</p>
-    </section>
-
-    <section class="chapter">
-        <h2>CHAPTER 8: THE DEFEAT OF THE AMATEUR INDIAN, AND HIS WORLD FRAMED IN ENGLISH</h2>
+</section>
+<section class="chapter" id="sec_ch_08">
+<h2 id="ch_08">CHAPTER 8: THE DEFEAT OF THE AMATEUR INDIAN, AND HIS WORLD FRAMED IN ENGLISH</h2>
 <p>ONCE, the union home minister Amit Shah, who many South Indians think is a North Indian, said that India needs a unifying language, and that the language is Hindi. He immediately unified half of India, for that is all it takes to make South Indians pretend that they love each other and that they are all the same. Then Tamil politicians, who are actually actors, and Tamil actors, who are actually politicians, lamented ‘the imposition’—an English word that is extremely difficult for most Tamils to pronounce.</p>
 <p>The fact is, no one has tried to impose Hindi on the South. But I have no doubt that the nationalistic BJP government in Delhi dreams of an India where there is a single dominant language which, coincidentally, they speak well. After all, there can be no nationalism without a national language. As things stand, there is no such thing as an Indian nationalist; there are only the North Indian nationalists. The exceptions are, oddly, the English-speaking new patriots.</p>
 <p>In India, ‘national’ tends to mean a thing that is not national. Like the national animal (tiger), national bird (peacock), national sport (hockey), and national capital (Delhi). National is often someone’s regional stuff, just like ‘global culture’ is the local culture of white people. The South has accepted many alien things as ‘national’, but it is too late for them to accept Hindi. The people who want Hindi to be the national language wish that the South agrees to be colonized by the language. Then one half of India will not be so foreign to the other half, and a nationalistic Indian prime minister would not have to, absurdly, speak to the poorest Tamils or patriotic space scientists in English. But then, people do not surrender to a language to be ‘unified’. People learn languages that are useful. What is the use of Hindi? What are the rewards of learning Hindi? Even parents are not very appealing if they are not useful. Hindi cannot colonize the South because Hindi is useless.</p>
@@ -453,10 +621,9 @@
 <p>They are not alone anywhere any more. Nowhere in the malls, theatres, and restaurants can they be guaranteed a degree of refinement. In the theatres they must rise for the national anthem. And what should they do if a man is on the phone throughout the movie? They have heard stories of friends being punched just for objecting to the use of the phone in movie halls. Never before has the uncouth Indian been so empowered, and so affluent. There is no place he cannot afford, or be refused admittance to any more. In any case, some of the richest residential real estate in the country has for long been taken over by fanatic vegetarians. Now there are affluent residential colonies in all major cities where residents demand the construction of temples. What should the lofty people do? Where should the amateur Indian go?</p>
 <p>They do consider themselves ‘global’, and everyone knows ‘global’ does not include Sudan or Mongolia. They will be able to obtain visas of the most advanced economies. But despite everything, all things considered, it is in India that life is the easiest, it is here that they are assured of good spots on the social mountain.</p>
 <p>What must they do? How can they become as confident as the son of the soil, who has friends in the police commissioner’s office and in other government places, who knows when to stand firm during a traffic dispute and when to flee, and how to game the system. How to be Indian in India?</p>
-    </section>
-
-    <section class="chapter">
-        <h2>CHAPTER 9: HOW HATE UNITED RICH AND POOR</h2>
+</section>
+<section class="chapter" id="sec_ch_09">
+<h2 id="ch_09">CHAPTER 9: HOW HATE UNITED RICH AND POOR</h2>
 <p>ONE afternoon in 2001, I went to meet ‘the first Hindu suicide squad’. As they stood in line for me, they tried not to laugh.</p>
 <p>This is one reassuring aspect of India—even today the idea of a ‘Hindu suicide squad’ will bring a chuckle even to those who have been recruited. At least, at the time of going to press.</p>
 <p>The squad was formed by a retired army officer, Colonel Jayant Chitale, in a distant Mumbai suburb. The colonel asked the boys to assemble in a deserted playground. When the colonel said they were the Hindu suicide squad and that they would terrorize ‘Lashkar-e-Toiba’, some of the boys giggled again.</p>
@@ -508,10 +675,9 @@
 <p>The ‘left’ is a low-stakes human hive of hearts that sees the world as a human hive of victims. The ‘right’ is a high-stakes preoccupation with what is locally relevant. The ‘left’ is a monoculture of a European idea; the ‘right’ is culture. I know Indian Hindus who despise Muslims in their own nation, but their hearts truly ache for faraway Palestinians. All elites are like parents—conservative at home, where the stakes are high, and liberal elsewhere, an abstract place that is not as important as home.</p>
 <p>(It is not only the social right that is helplessly local. Increasingly, the economic right, too, is shedding interests any more. During his first presidency, Trump told the United Nations, ‘We reject the ideology of globalism and we embrace the doctrine of patriotism.’ In his second term, he has almost finished off free trade, at least at the time of going to press.)</p>
 <p>There are, of course, a few global right-wing figures. Hitler, for instance, has for long been a mascot for groups that wish to terminate cultural diversity in society. Russia’s Vladimir Putin has fans in the West who post videos of his motorcade, of his walks down corridors in slow motion, and of his bare- chested horse rides. But these fans are a small fringe compared to the numbers, spread, and diversity of the fans of humanitarian figures. As I have explained, there are powerful reasons why there is no such thing as the global right. Any wound that is global will automatically be a left movement.</p>
-    </section>
-
-    <section class="chapter">
-        <h2>CHAPTER 10: WHY THE POOR LOVE POLITICIANS (Or How Politicians Protect Us From the Poor)</h2>
+</section>
+<section class="chapter" id="sec_ch_10">
+<h2 id="ch_10">CHAPTER 10: WHY THE POOR LOVE POLITICIANS (Or How Politicians Protect Us From the Poor)</h2>
 <p>FOR a few days in 2003, I stayed in a sprawling gracious home on the outskirts of Harare, as a paying guest of a middle-aged white couple. I was there to cover the cricket World Cup, which Zimbabwe was co-hosting. All around us, the nation was falling apart. The currency had already collapsed. Zimbabweans called their dollar Ferrari, ‘because it is red and it vanishes’. I think for the first time in my life I saw a phrase play out in real life—I saw people stand in long lines for hours for bread, actual bread. As an Indian, I thought I had seen all forms of poverty. But this was new. People stole anything made of metal, like road signs. The official exchange rate of the currency was also an official joke, to the extent that when foreigners landed at the Harare airport and tried to exchange their meaningful currencies, the officials who manned the currency counters had to work hard to hold back their laughter, their nostrils quivering. Because the official exchange rate was about fifty Zimbabwean dollars to a US dollar. After exchanging the currencies, when the foreigners stepped out on the streets, they would realize that an American dollar was worth more than 2,000 Zimbabwean dollars. One morning, my hostess, who was an athletic and energetic woman, told me that she was distraught by ‘the situation’. She was not referring to the economy though. The situation was that Zimbabwe had become unsafe for white landlords like her. Zimbabwean president Robert Mugabe wanted them out. The World Cup did not dissuade him from saying what he had always said—that white farmers must vacate their farms and leave Zimbabwe.</p>
 <p>Over breakfast in the kitchen, my hostess began to tell me how much the world hated Robert Mugabe. ‘Even the blacks (of Zimbabwe) hate him,’ she said.</p>
 <p>That, I was not willing to believe.</p>
@@ -543,10 +709,9 @@
 <p>For decades, Jayalalithaa and Karunanidhi took turns to rule poorly. Once, their most effective policy decision was that when Karunanidhi would assume power, he would change all bus route designations from ‘J’ to ‘K’, and when Jayalalithaa would come to power, she would change ‘K’ back to ‘J’. Both were widely perceived as corrupt. Jayalalithaa was the more entertaining of the two, though. She arranged men in geometric formations and made them bow to her. Women loved her.</p>
 <p>Things are no different in any other state in the country. All major political parties need to lure voters in crooked or at least sly ways to win elections. The elite are disgusted not only by the unofficial cash bribes but also by profligate programmes that are giving away increasingly expensive alms. But this is nothing but hollow moral outrage. The wages are so low in the nation, opportunities so meagre, and the private sector so exploitative, that crooked and bad politics have often turned out to be humanitarian acts. The Indian voter backs a corrupt politician because the rogue gets things done for him, at least in the short term.</p>
 <p>Politicians also routinely save the poor from the ideals of the westernized amateur Indian. In fact, politicians saved a crucial innovation for the poor from being abolished by privacy paranoids as we shall see in the next chapter.</p>
-    </section>
-
-    <section class="chapter">
-        <h2>CHAPTER 11: HOW A BILLIONAIRE AND CAREER POLITICIANS SAVED AADHAAR FROM AMATEUR INDIANS</h2>
+</section>
+<section class="chapter" id="sec_ch_11">
+<h2 id="ch_11">CHAPTER 11: HOW A BILLIONAIRE AND CAREER POLITICIANS SAVED AADHAAR FROM AMATEUR INDIANS</h2>
 <p>A few years ago, the philanthropist, and probably the wealthiest Indian to ever moderate a panel discussion, Rohini Nilekani was steering a discussion on ‘Writing Under Threat’ at a literature festival, when she was ambushed by one of the speakers, Sujatha Gidla, the Dalit writer who describes herself as ‘an untouchable’ to shame India for its caste system. (Once, Gidla told a man in a bar in Atlanta that she was ‘an untouchable’, and the perplexed American flirted, ‘but you are so touchable.’) Gidla told Rohini Nilekani, ‘I looked you up on Google, it says you are the wife of (she was unfamiliar with the name that follows) Nandan Neel-kay-nee, the chief of Infosys. Then I wondered how you got to be the moderator of the session about writing under threat. What experience do you have with threats? I would have thought you are on the other side—those who threaten. Isn’t it true that Infosys recently laid off tens of thousands of employees?’ (Gidla herself was a techie who was laid off in the United States.)</p>
 <p>Gidla then attacked India’s unique identity system, Aadhaar, because its architect was the moderator’s husband, Nandan Nilekani, the co-founder of Infosys. Aadhaar was created to identify every Indian, especially those who did not have documents. On its basis, hundreds of millions of Indians could create bank accounts into which the government directly transferred cash benefits. Aadhaar remains one of the great humanitarian ventures of the modern world. (It is remarkable that Aadhaar and Al-Qaeda mean the same thing, which is ‘foundation’, and it is even more remarkable that its neurotic foes have missed this tweetable fact.)</p>
 <p>Activists hated Aadhaar for reasons Gidla stated to Rohini Nilekani. ‘It is mass surveillance, it will affect political activism or anything we do against government.’ She then quoted another writer who had said Indians now have to get the permission of the government to write books, which was untrue, but she made it sound as though it was not only a common fact but also the fault of Nandan Nilekani. While the assault was underway, Rohini Nilekani laughed unhappily, and once shifted her own chair by a few inches. But when she got a chance to respond, she said, ‘I just want to ask you one thing. I am surprised you are talking about me as a wife and not an individual....’ There was applause from the audience, which made Gidla pick up the mike as though she wished to show she had a deadly response, but she did not say anything. Later, she would complain on Twitter (as X was then known) that the audience had many Brahminical women ‘with fancy sunglasses who came to see Rohini Nilekani’. In the world, according to Gidla, the Nilekanis and their class of friends in fancy sunglasses were the omens of class oppression. But, could it be that she had missed the more lethal omens of our age that hide in plain sight?</p>
@@ -581,10 +746,9 @@
 <p>That humans will hate intelligent machines is a recurring artistic prophecy. But art’s portrayal of how exactly we will hate machines has never been convincing. Humans will probably hate machines in abstract ways, maybe through liberal outrage, through hating digital platforms like Aadhaar. Nilekani makes a sound. It is probably a scoff to suggest I am overthinking, and that I am overestimating the opposition to Aadhaar. ‘You are making it sound like a big thing, it is not such a big thing.’</p>
 <p>He said that the whole game of activists was to influence the minds of the Supreme Court, but it was a battle they had already lost. ‘The judges have understood Aadhaar very well,’ he said. The judges eventually ruled that all ideological opposition to Aadhaar is subordinate to every Indian’s right to identity and prosperity.</p>
 <p>Nilekani wished to affect the destiny of Indians, but not as a leader any more. He wanted to be the backdrop. He will not be a politician again, he will not be ‘in the front’ again. ‘My political career is over. It’s what is called in the internet world “fast fail”. You try something and you realize quickly this is not going to work. I didn’t want to be the Rajya Sabha sort of politician. It had to be through the legitimacy of winning an election. But I soon realized I don’t have any competitive advantage. Also, politics is murky. I have zero interest now. The episode was traumatic. When you lose an election it is like a public rebuff, a public rejection. But it was good, it has left me a better person. I have no confusion now about my role in life.’</p>
-    </section>
-
-    <section class="chapter">
-        <h2>CHAPTER 12: LET THE POOR HAVE FUN</h2>
+</section>
+<section class="chapter" id="sec_ch_12">
+<h2 id="ch_12">CHAPTER 12: LET THE POOR HAVE FUN</h2>
 <h3>How technology enslaved the poor</h3>
 <p>Hours after the Indian government introduced its own tablet computer, as though in tribute, Steve Jobs died. There were no other omens. In fact, on 5 October 2011 and the weeks that followed, the Ministry of Human Resource Development appeared to have reason to be confident and proud of the tablet, which was called Aakash. There was somewhat congratulatory world attention for days. At just over ₹2,000 Aakash would be the cheapest tablet in the world and would be distributed to millions of Indian students at prices that were even cheaper. But then they would have got what they paid for.</p>
 <p>Aakash was a disaster. Its production was hit by delays and there were a range of quality issues. Eventually, Chinese manufacturers claimed that the company that had been contracted by India to produce Aakash had simply bought Chinese tablets off the shelves and changed the name.</p>
@@ -615,10 +779,9 @@
 <p>It is not always true that entertainment is the collateral consequence of progress; progress, often, is the collateral benefit of the pursuit of pleasure. Quality of life is as much an assortment of happy frivolities as it is the bare essentials of survival. And India is a perpetual reminder that a lot of good—even the sombre sociological stuff—can come from people setting out in pursuit of joy.</p>
 <p>What the poor want from a technological revolution is probably best understood by watching the way they react to electricity. They do not crave electricity so they can keep newborns warm in incubators. They want it for the simple pleasure of having light and other conveniences in their lives on demand.</p>
 <p>The extraordinary triumph of the mobile phone among India’s poor stemmed from its ability to enable a most mundane human need, which is to chat with other people. And when the poor chat, it is not always about curing a child of diarrhoea.</p>
-    </section>
-
-    <section class="chapter">
-        <h2>CHAPTER 13: WHAT MONEYLENDERS KNOW</h2>
+</section>
+<section class="chapter" id="sec_ch_13">
+<h2 id="ch_13">CHAPTER 13: WHAT MONEYLENDERS KNOW</h2>
 <p>EVERY time my mother pawned a gold bangle, she became extravagant. She would march to the grocery store to clear her debts. The half-naked shopkeeper, who usually sat on a sack of rice eating his own jaggery, grew wary when she approached because she was always buying goods on loan. But when he saw that she had cash rolled in her fist, he quickly became servile, which was the only way people in Madras then knew how to show respect. In her hour of glory, my mother turned feudal and enquired after the shopkeeper’s life, imitating Indira Gandhi speaking to the survivors of a natural calamity. And she went home carrying cake, biscuits, chips, squash, Horlicks, laddoos, and rusk. Exactly those items. Even in the 80s, there weren’t many things to buy, at least in India. My sister and I would eat the loot as my mother slowly turned silent and morose. After all, she had lost more of her gold. Then nothing moved in the house except three mouths: my sister and I munched food as my mother mumbled about her gold, about how she would get it all back. A woman muttering a reassurance to herself, that was the first thing in my life that could make my heart ache. Some days she would say that when I grew up, I would retrieve the gold for her. It was my first foreboding of adulthood—that I had to one day retrieve family jewels. I said I will, but she knew perhaps, even if I didn’t, that her gold would soon be melted and transformed into an entirely different object to adorn the neck of a luckier woman.</p>
 <p>Every time, her objective for mortgaging gold was more honourable than the joy of buying junk food, which was never called ‘junk food’ those days because it was unthinkable to call any food ‘junk’. Even junk was never called junk. Her objective was always ‘school fees’, and there was nothing more honourable in my Madras of the 80s than school fees.</p>
 <p>Kunjamma had eleven gold bangles and a chain when she moved to Madras from Kerala. In the first years of raising her children, she lost all her gold to pawnbrokers. She took to wearing my sister’s thin gold waistband, also known as aranyanam, around her neck, until that went too. Every time, she borrowed at 120 per cent annual interest, pawning her gold as collateral, and every time she was confident that she would repay the pawnbroker and retrieve her gold, and every time she failed to pay in time until the cost of retrieval was higher than the price of her gold.</p>
@@ -678,10 +841,9 @@
 <p>This should make considerable sense to the rich, especially the rich in a poor country. There is something honest about extravagance as an expression, but it creates considerable ill will. The common public opinion in India that Vijay Mallya should be extradited by the United Kingdom to face charges here for defaulting on loans is largely a contribution of his extravagance. He is, in actuality, a more substantial man than what he portrayed, and people did enjoy him for his flashiness. The image is a problem, though, when good times turn bad. People eventually found him repulsive for living in luxury when he could not pay his staff their full dues.</p>
 <p>Mallya has become the mascot of an opinion that at the highest levels of third-world capitalism, debt is a big immoral scam. Our Malayali Billionaire is the anti-matter of the Mallyas. He tries very hard to show he is frugal.</p>
 <p>The austere are not playing a game. They want to be this way, they cannot be any other way. Culturally, religiously, psychologically they are compelled not to be extravagant. Very simply, they believe in austerity. And through this belief they inadvertently make their wealth a bit more palatable for the poor.</p>
-    </section>
-
-    <section class="chapter">
-        <h2>CHAPTER 14: THE NEWLY RICH VILLAGE</h2>
+</section>
+<section class="chapter" id="sec_ch_14">
+<h2 id="ch_14">CHAPTER 14: THE NEWLY RICH VILLAGE</h2>
 <p>THE first time I visited Gurgaon, then regarded a distant suburb of Delhi, was in 2007 when I went to meet the ‘sudden millionaires’, the middle-class and poor farmers who had suddenly become rich when they sold their land to developers. Gurgaon, by then, was already a burgeoning stretch of real estate with glass buildings, malls, and gigantic hives of apartments named after European things the courier boys could never pronounce. Piers were becoming bridges. Its marketplaces and restaurants teemed with EMI couples and their we- two-our-two children, and in the pale background, a dark melancholic Bihari maid. There was no evidence of any other time but the present, though Dronacharya was rumoured to have been born in a hamlet here. (‘Guru’ in Gurugram comes from him.) The hint that a different population once lived in Gurugram arrived sometimes in dramatic ways. A woman in Nirvana, a posh residential colony, recalled the appearance of a rustic woman at her doorstep. ‘I thought she wanted a job as a maid but then I realized she was looking for a house to buy.’</p>
 <p>Descendants of the nomadic shepherds and farmers who had once settled in Gurgaon and grown bajra, jowar, and mustard in their arid lands, were, at the time, sudden beneficiaries of a spectacular revolution. The rise of the BPOs in the previous decade, the coming of other service industries, and the brute force of builder enterprise had converted almost worthless farmlands into properties that now fetched one to eight crore rupees per acre, a 500-fold increase over the last decade. Landed farmers who until recently had earned about ₹15,000 per acre in a year through farming, had become dollar millionaires. It was as if a whole district had won a lottery. And the carnival was only intensifying. In 2006, the year before my visit, sales of over 800 acres of land had been transacted. Big builders already owned 10,000 acres in Gurgaon, and they were buying more.</p>
 <p>In the insanity of sudden affluence, farmers were buying cars, usually Škodas or Ford Endeavours for some reason, on cash down payments. Enchanted by the real estate industry, many had become land brokers. Some were lost to drinking and gambling. Women who used to wake up at four in the morning to finish household work, had now discovered bed tea. They even called it ‘bed tea’. When two neighbours crossed each other in the lane, there was a silent duel in their minds to decide who would say ‘Ram Ram’ first. ‘The man who is poorer should greet first,’ a farmer said of the new etiquette. Some men who used to be poor were not any more. The location of their land had turned out to be a lottery. They had suddenly become the new economic elite of their villages. Villagers who had once come together to conduct a marriage had now learned the art of grudging attendance and quick, sophisticated exits. They even knew what ‘sugar’ was. I heard a story, which I hope is not apocryphal because I want it to be true—of five brothers who walked into a school and asked the teachers if there was a smart girl of marriageable age among their students. The men said their family had earned three crore from a land sale but they were all illiterate. They had decided one of the brothers should marry an educated girl who would know how to handle the money.</p>
@@ -698,10 +860,9 @@
 <p>Actual Gurugram, which is erroneously known as Old Gurgaon, emerged from a pastoral way of life and is even today rustic, and mindful of caste and religion. It has a history of communal tension, and is also one of the worst regions in India for women. Its mothership, Haryana, has a gender ratio of 879 females to every 1,000 males. (The national average is 940, and Kerala’s is 1,084.) Old-time Gurgaon is all around, even in the heart of the ‘new town’, not as adorable ruins but as omens. Dozens of free-range cows stand in the middle of the road, sensing a new mysterious privilege. The municipality is one of the worst managed in my experience. It is as though people who have been entrusted to bring the city to villages believe that they must bring villages to the city. There are hillocks of garbage that are burnt in the open, and many roads are broken. All this points to a political assurance that the votes come for reasons other than civic standards, and those reasons are economic and communal.</p>
 <p>Gurugram and the villages around it are strongholds of men who claim to worship cows, some of whom assault unlucky Muslims who get caught with them. That aspect of the region has become more ruralized even as Gurugram continues to boom. The rent of affluent homes has almost doubled in the last two years. But the fundamental nature of the place is the nature of its original people; it is rural Haryana. Even Mumbai could not pretend for long that it was anything more than a Maharashtrian town.</p>
 <p>One of the great civil wars of our times is the battle between the idea of the village and the idea of city; the battle between roots and rootlessness. It is a battle that the village is winning everywhere. In this victory are the signs of peace between the classes that are culturally similar.</p>
-    </section>
-
-    <section class="chapter">
-        <h2>CHAPTER 15: DESPITE INDIA</h2>
+</section>
+<section class="chapter" id="sec_ch_15">
+<h2 id="ch_15">CHAPTER 15: DESPITE INDIA</h2>
 <h3>The grit and patience of the poor</h3>
 <p>Every four years, the world organizes a great festival to insult India. No other nation is more humiliated at the Summer Olympics than India. Indians perform poorly at the Winter Olympics too, but they are not as shameful because we are perceived by the world as a tropical nation. These days, India does win some medals at the summer edition but they are very few, especially when measured against a population of 1.4 billion. But India’s sporting mediocrity should not be what shames us. Instead, it is the fact that the Olympics is an accurate indicator of how terrible the Indian support system is, how poorly India cares for its own, and how difficult it is for talented people to survive in India even in objective fields like sports, which are controlled by some of the worst human beings nature has ever produced—low, and mid-rung politicians. In the past, Indian Olympians have not only faced poor infrastructure, some of them have also accused officials of sexual harassment and other forms of torment.</p>
 <p>You ask any parent of any social class whose child has some kind of sporting talent in any of the disciplines, and you will hear stories of how poorly and cruelly competitions are organized, how filthy and unsafe the facilities are. Children are made to wait for hours in the sun because officials, who have a strange desire to dye their hair jet black, arrive late. Athletics events are held in dangerously humid conditions. There are under-15 swimming events in Gurugram in outdoor pools when temperatures soar to 45° Celsius. It is from these formative rungs that the future Olympians come, and they are designed to kill the spirit of young athletes, or just kill them.</p>
@@ -745,10 +906,9 @@
 <p>Any form of economic behaviour is usually not rational, it is merely a habit. That is the reason why in many societies, people tip only waiters but not other professionals who perform as much or far greater service. Like shop assistants. Actually, as Mr Pink pointed out in <em>Reservoir Dogs</em>, even McDonald’s employees are not tipped. ‘. you don’t see anyone tip them, do ya? Why not? They’re serving you food. But no, society says don’t tip these guys over here, but tip these guys over here.’</p>
 <p>Even in other types of restaurants, where the idea of tipping is deeply set, Indians give grudgingly and poorly when a service charge is not included in the bill. If Indians start tipping as though it is a religious duty, it would not only infuse a reasonable amount of idle cash into the economic system but may also contribute to the goodwill between the republic of the middle class and that of the poor. A truly courageous reformer (which eliminates most politicians) would coax Indians to tip more instead of giving money to the God who saves in fixed deposits.</p>
 <p>Tipping also includes asking taxi drivers to keep the change, and give even more. And letting the unsung inventor of surge pricing, the Indian auto driver, overcharge you within reasonable limits.</p>
-    </section>
-
-    <section class="chapter">
-        <h2>CHAPTER 16: A THEORY ABOUT HOW GOOD AND BAD THINGS HAPPEN</h2>
+</section>
+<section class="chapter" id="sec_ch_16">
+<h2 id="ch_16">CHAPTER 16: A THEORY ABOUT HOW GOOD AND BAD THINGS HAPPEN</h2>
 <p>SAM Pitroda was one of the most famous men in India in the 1980s. As the seer of India’s telecom, he was responsible for billions of long-distance calls of Indians getting through. With that French beard and words that a man with a French beard is expected to say, he looked like a man who would never win an election in India. Yet, he was one of the most powerful Indians because he was a beloved of the Gandhi family. A few days before the 2024 elections, he said that India should enforce inheritance tax and that the wealth of the rich should be redistributed. It was a very 80s moment from a superstar of the 80s. The BJP rejoiced and pounced on it. It successfully framed his statement as a Congress manifesto. That’s odd.</p>
 <p>Why was the BJP joyous as though Pitroda had blundered? Wouldn’t India’s poor love what he said because, after all, what he said was that when the rich die, some of their money should be taken away from their spoilt kin and given to the poor. Yet, the BJP amplified his message as though this was a nation filled with billionaires; the Congress disowned Pitroda’s statement, saying he was on his own. Many young men and women who appeared to be from modest backgrounds went to a Congress office to protest against inheritance tax, and ‘wealth redistribution’.</p>
 <p>It looked like nobody fully understood what they were doing. That fact does not concern us in this chapter.</p>
@@ -785,10 +945,9 @@
 <p>To understand the true value of idealists, it is useful to take the example not of the worst and the mediocre among them, but the finest. So let us consider Ravish Kumar, a journalist and activist whose Hindi is exquisite and his calm son-of-the-soil lament as journalism is the very voice of India’s conscience. The arguments that Ravish makes do not win elections. And his overarching argument that the BJP is bad for the nation is something that people periodically reject. Yet, Ravish is extremely popular. A few times, when I have thought that a group of drivers under a tree are watching porn, it has turned out that they are only watching a clip of Ravish. I have heard Ravish’s voice in this manner from passers-by. Never have I heard anyone listen to the prime minister’s podcast, ‘Mann ki Baat’. Now, now, I know this is all anecdotal, but I believe intuitively that Ravish’s monologues are more popular than Modi’s. Without a doubt, Modi is many times more popular, and he would demonstrate so if ever there is a vote. But voting is not all that people do. There are some healthy things Indians do, and among them is probably listening to the voices of their nation’s conscience.</p>
 <p>The charm of Ravish is in his state of defeat. He accepts that all resistance to the BJP is futile in the near future, and that nothing he says or reports will change that. In that way, his voice is the pathos of the underdog, and that is pure art.</p>
 <p>Such voices of lament, as of Ravish, convey to the poor that their concerns matter, that society, despite everything, has ‘a moral compass’.</p>
-    </section>
-
-    <section class="chapter">
-        <h2>CHAPTER 17: REVENGE OF THE POOR</h2>
+</section>
+<section class="chapter" id="sec_ch_17">
+<h2 id="ch_17">CHAPTER 17: REVENGE OF THE POOR</h2>
 <p>WHAT I found most poignant during Covid was how desperately people wished to live. You won’t guess that from how they eat.</p>
 <p>The Indian government is as absurd. The way it tried to keep us alive during the pandemic, for a moment there I did believe it doesn’t want me dead. But India and I go a long way. What India loves is the idea of rescue. Have you seen how India behaves when a guy needs a heart transplant—oh my God, one city comes to a standstill to let an ambulance zip through to the airport, then another city comes to a standstill to let an ambulance zip through to a hospital. But every day it kills thousands of us just on the roads.</p>
 <p>As an Indian, my standards are so low that my idea of exciting urban development is a Nitin Gadkari tweet. I enjoy reading the plans of the minister for road transport and highways—the great roads he is getting built, how he would punish Indians who don’t follow the law (this part especially), how he plans to replace vehicular horns with the sound of Indian musical instruments, and how very soon road travel from Chennai to Bengaluru would take only two hours. I did try to point out to him on X (formerly Twitter) that right now Bengaluru to Bengaluru is two hours. Indian politicians, in general, don’t give us any hope when they speak of our urban future. They speak of nonsensical things like ‘smart cities’ and ‘twin cities’. The fact is, India’s politicians and people have worked together to make Indian cities among the most unliveable and ugliest places on Earth. It is as though the poor have voted their politicians to power to ensure India is not so enjoyable to the rich. It is not entirely untrue. The whole spectrum of India’s poor, which in this context includes the lower-middle classes, decide Indian politics and, to an extent, Indian politics is the revenge of the poor. They have consistently voted in second-rate people for short-term gains and to control rival castes and Muslims. In that way, the poor do kill. They may harm themselves more or as much as they harm the upper-middle class in creating a political class that has created a largely unenjoyable modern nation, but that does not alter the fact that something of this hell is a result of spite, the spite that the average Indian feels for those who are richer than him.</p>
@@ -812,10 +971,9 @@
 <p>The price for this is just about right for the asparagus-eaters, the upper-middle classes. For ₹5–10 crore, they can find a home in a beautiful Gurugram colony where most of India is stopped at the gates. Women can walk without worry and children find safe ground. Even this is slightly overpriced because it is comparable to the price of a home in, say, Brooklyn. But the super-rich have to pay inordinate amounts, not only to claim to be rich in India, but also to live and feel like rich people and exorcise the spirit of real India. They either build an entire skyscraper just for their family or live in resort-like apartment buildings, paying atrocious amounts merely to escape India. The irony, of course, is that even after paying so much, they still cannot entirely escape the nation. They still have to live in an urban cancer that keeps growing untamed. They get stuck in traffic more frequently than novelists who don’t have to leave home, and they breathe toxic air.</p>
 <p>The upper-middle class does spend a lot of money on its cocoons but it has also developed ways of exclusion that cost nothing or very little. They use what is called ‘culture’ and a bit of sophistication to exclude most Indians from their daily lives. In the Madras of my childhood, for instance, it was classical music and dance. Today they use their Ivy League education and narrow specializations in luxury streams to nurture exclusive clubs where the other India simply has no chance to present itself. The super-rich, on the other hand, only have money. And money has long divorced class, so some old-money people scoff at the neighbours and even friends they now have to endure. The super-rich across the world face a general problem with capitalism, which does not serve its true masters well. There are no real products for them. They must shoot themselves to space or sink to ocean depths to see and feel something the rest of the world cannot. Overpriced bags, isolated giant-silo homes, and 100-metre-long yachts, too, might be just outlandish expressions of the fact that even though money can buy happiness, there is no kind of happiness in the market that only a lot of money buys. The best phone, cinema, or even holiday is available to the merely affluent.</p>
 <p>But at least the billionaires of the West can dabble in longevity science or bet on politics without facing ruin if their bets turn bad. The super-rich of Gurugram only have a building in the smog.</p>
-    </section>
-
-    <section class="chapter">
-        <h2>CHAPTER 18: INEQUALITY CANNOT BE SOLVED</h2>
+</section>
+<section class="chapter" id="sec_ch_18">
+<h2 id="ch_18">CHAPTER 18: INEQUALITY CANNOT BE SOLVED</h2>
 <p>THERE is a sort of inequality that looks bad in statistics. For instance, when you look at the top 1 per cent and how much of a nation’s wealth they own. But there is another sort of inequality that is not so lamented but is more destructive. The billionaires don’t figure in this. It is the headstart that the upper-middle class has on the rest in all the turfs where they compete with those below them.</p>
 <p>In almost everything they do, billionaires and their children are not in competition with the rest of society. They have their own charmed universe where they do not even properly mingle with people who do not come close to their wealth. But consider the asset millionaires: they compete unfairly with the rest of society in entrance exams, finance jobs, the start-up culture, in cinema, literature, and the arts. Their head start is not in their material assets alone, which is an overrated part of privilege. Their true unfair advantage is in social contacts and the doors of the clubs that they hold to control who enters. Seen this way, the billionaires are far less guilty of inequality than what the upper-middle class creates. The objective of any family, whatever be its resources, is to provide an unfair advantage to its children.</p>
 <p>Can something as pervasive as inequality be solved? Or is inequality the most natural consequence of human nature? Actually, what the hell is equality? Is equality one of those thought experiments of European philosophers, like equilibrium, black body, and Marxism, which their acolytes have taken too seriously as an actual state that can be achieved? An amusing thing about inequality is that the people who talk the most about it are all beneficiaries of it. Is social ‘inequality’ like gender inequality, merely a complaint by the 98 percentile against the 99th percentile? Mere millionaires loathing multi-millionaires; multi-millionaires loathing billionaires.</p>
@@ -829,6 +987,6 @@
 <p>The failure of the world is not in creating economic equality, which cannot exist in the real world in any case. The failure of the world is its inability to show people the truth—that money is just one of the things that matter. Intellectuals have tried, of course, through their happiness indices. Writers have tried through their moral stories. But they have failed.</p>
 <p>People desperately want many experiences that they can see in the lives of the most visible section of the rich—not the billionaires but the upper-middle classes. And everything that people desperately want becomes a ‘basic necessity’ of life. Every time a new way of life makes living better, its denial to the majority becomes one of the new meanings of poverty. That is why, as long as there are the rich, there will be the poor.</p>
 <div class="star-break">* * *</div>
-    </section>
+</section>
 </body>
 </html>
