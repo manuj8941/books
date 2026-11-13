@@ -1,0 +1,545 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Digital Library • Curated Classics & Reportage (English & Hindi)</title>
+    <!-- NYT Authentic Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Libre+Franklin:wght@400;500;600;700;800&family=Martel:wght@400;600;700;800&family=Mukta:wght@400;500;600;700&family=Newsreader:ital,opsz,wght@0,6..72,400;0,6..72,500;0,6..72,600;0,6..72,700;1,6..72,400;1,6..72,600&display=swap" rel="stylesheet">
+
+    <style>
+        * { box-sizing: border-box; }
+        :root {
+            --bg-color: #FBFAF8;
+            --text-color: #121212;
+            --border-color: #e5e3dc;
+            --accent-kicker: #727272;
+        }
+        body {
+            margin: 0;
+            padding: 0;
+            background-color: var(--bg-color);
+            color: var(--text-color);
+            font-family: 'Newsreader', Georgia, serif;
+            line-height: 1.45;
+            text-align: left;
+        }
+
+        /* Header Masthead */
+        header.masthead {
+            max-width: 1100px;
+            margin: 0 auto;
+            padding: 3rem 1.5rem 1.8rem 1.5rem;
+            text-align: center;
+            border-bottom: 1px solid var(--text-color);
+            position: relative;
+        }
+        header.masthead::after {
+            content: "";
+            position: absolute;
+            left: 1.5rem;
+            right: 1.5rem;
+            bottom: -4px;
+            height: 1px;
+            background: var(--text-color);
+        }
+        .masthead-meta {
+            font-family: 'Libre Franklin', sans-serif;
+            font-size: 0.78rem;
+            text-transform: uppercase;
+            letter-spacing: 0.15em;
+            color: var(--accent-kicker);
+            font-weight: 700;
+            margin-bottom: 0.5rem;
+        }
+        h1.site-title {
+            font-family: 'Newsreader', Georgia, serif;
+            font-size: 2.75rem;
+            font-weight: 700;
+            letter-spacing: -0.02em;
+            margin: 0 0 0.5rem 0;
+            text-transform: uppercase;
+        }
+        .site-tagline {
+            font-family: 'Newsreader', Georgia, serif;
+            font-size: 1.2rem;
+            font-style: italic;
+            color: #444;
+            max-width: 720px;
+            margin: 0 auto 1.5rem auto;
+        }
+
+        /* Navigation Filter Bar */
+        .filter-bar {
+            max-width: 1100px;
+            margin: 2rem auto 2.5rem auto;
+            padding: 0 1.5rem;
+            display: flex;
+            justify-content: center;
+            gap: 10px;
+            flex-wrap: wrap;
+        }
+        .filter-btn {
+            font-family: 'Libre Franklin', sans-serif;
+            background: #ffffff;
+            border: 1px solid #cbd5e1;
+            padding: 8px 18px;
+            border-radius: 20px;
+            font-size: 0.85rem;
+            font-weight: 600;
+            color: #334155;
+            cursor: pointer;
+            transition: all 0.15s ease;
+        }
+        .filter-btn:hover {
+            background: #f1f5f9;
+            border-color: #94a3b8;
+        }
+        .filter-btn.active {
+            background: #121212;
+            color: #ffffff;
+            border-color: #121212;
+            box-shadow: 0 2px 8px rgba(18,18,18,0.25);
+        }
+
+        /* Book Grid */
+        main.catalog-grid {
+            max-width: 1100px;
+            margin: 0 auto 5rem auto;
+            padding: 0 1.5rem;
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(480px, 1fr));
+            gap: 2rem;
+        }
+        @media (max-width: 600px) {
+            main.catalog-grid { grid-template-columns: 1fr; }
+            h1.site-title { font-size: 2.1rem; }
+        }
+
+        /* Book Card */
+        .book-card {
+            background: #ffffff;
+            border: 1px solid var(--border-color);
+            border-radius: 4px;
+            box-shadow: 0 3px 12px rgba(0,0,0,0.04);
+            display: flex;
+            gap: 1.2rem;
+            padding: 1.5rem;
+            transition: transform 0.15s ease, box-shadow 0.15s ease;
+        }
+        .book-card:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 6px 20px rgba(0,0,0,0.08);
+        }
+
+        /* Cover Image / Placeholder */
+        .book-cover-wrap {
+            flex: 0 0 115px;
+            height: 165px;
+            background: #f1efe9;
+            border: 1px solid #ddd;
+            border-radius: 3px;
+            overflow: hidden;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        .book-cover-img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+        .cover-placeholder {
+            flex-direction: column;
+            padding: 8px;
+            text-align: center;
+            background: linear-gradient(135deg, #1b1c1e 0%, #2e3034 100%);
+            color: #ffffff;
+        }
+        .placeholder-letter {
+            font-family: 'Libre Franklin', sans-serif;
+            font-size: 1.8rem;
+            font-weight: 800;
+            color: #e2e8f0;
+            line-height: 1;
+            margin-bottom: 8px;
+        }
+        .placeholder-title {
+            font-family: 'Newsreader', Georgia, serif;
+            font-size: 0.72rem;
+            color: #cbd5e1;
+            line-height: 1.2;
+        }
+
+        /* Card Body */
+        .book-card-body {
+            flex: 1 1 auto;
+            display: flex;
+            flex-direction: column;
+        }
+        .card-meta {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 6px;
+        }
+        .category-kicker {
+            font-family: 'Libre Franklin', sans-serif;
+            font-size: 0.68rem;
+            font-weight: 800;
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+            color: var(--accent-kicker);
+        }
+        .lang-pill {
+            font-family: 'Libre Franklin', sans-serif;
+            font-size: 0.68rem;
+            font-weight: 700;
+            padding: 2px 7px;
+            border-radius: 3px;
+            text-transform: uppercase;
+        }
+        .lang-pill-en { background: #e0f2fe; color: #0369a1; }
+        .lang-pill-hi { background: #fef3c7; color: #b45309; }
+        .lang-pill-special { background: #f3e8ff; color: #6b21a8; }
+
+        h3.card-title {
+            font-family: 'Newsreader', 'Martel', Georgia, serif;
+            font-size: 1.45rem;
+            font-weight: 700;
+            line-height: 1.2;
+            margin: 0 0 4px 0;
+        }
+        h3.card-title a {
+            color: #121212;
+            text-decoration: none;
+        }
+        h3.card-title a:hover {
+            text-decoration: underline;
+        }
+        .card-subtitle {
+            font-family: 'Libre Franklin', 'Mukta', sans-serif;
+            font-size: 0.82rem;
+            color: #64748b;
+            margin-bottom: 6px;
+            font-weight: 500;
+        }
+        .card-author {
+            font-family: 'Newsreader', 'Martel', Georgia, serif;
+            font-size: 0.9rem;
+            font-style: italic;
+            color: #334155;
+            margin-bottom: 10px;
+        }
+        p.card-desc {
+            font-family: 'Newsreader', 'Martel', Georgia, serif;
+            font-size: 0.92rem;
+            line-height: 1.38;
+            color: #374151;
+            margin: 0 0 12px 0;
+            flex-grow: 1;
+        }
+        .card-badge {
+            font-family: 'Libre Franklin', 'Mukta', sans-serif;
+            font-size: 0.72rem;
+            font-weight: 600;
+            color: #475569;
+            background: #f8fafc;
+            border-left: 2px solid #121212;
+            padding: 4px 8px;
+            margin-bottom: 14px;
+        }
+
+        /* Action Buttons */
+        .card-actions {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 6px;
+            align-items: center;
+        }
+        a.btn-read {
+            font-family: 'Libre Franklin', sans-serif;
+            background: #121212;
+            color: #ffffff;
+            padding: 6px 14px;
+            border-radius: 3px;
+            font-size: 0.8rem;
+            font-weight: 700;
+            text-decoration: none;
+            transition: background 0.15s ease;
+        }
+        a.btn-read:hover {
+            background: #333333;
+        }
+        a.btn-dl {
+            font-family: 'Libre Franklin', sans-serif;
+            background: #f1f5f9;
+            color: #334155;
+            padding: 6px 10px;
+            border-radius: 3px;
+            font-size: 0.78rem;
+            font-weight: 600;
+            text-decoration: none;
+            border: 1px solid #cbd5e1;
+            transition: all 0.15s ease;
+        }
+        a.btn-dl:hover {
+            background: #e2e8f0;
+            color: #0f172a;
+        }
+
+        /* Footer */
+        footer.site-footer {
+            max-width: 1100px;
+            margin: 0 auto;
+            padding: 2rem 1.5rem 4rem 1.5rem;
+            text-align: center;
+            border-top: 1px solid #e2e8f0;
+            font-family: 'Libre Franklin', sans-serif;
+            font-size: 0.82rem;
+            color: #64748b;
+        }
+        footer.site-footer a {
+            color: #121212;
+            font-weight: 600;
+            text-decoration: none;
+        }
+        footer.site-footer a:hover {
+            text-decoration: underline;
+        }
+    </style>
+</head>
+<body>
+
+    <header class="masthead">
+        <div class="masthead-meta">A Digital Repository &bull; Open Literary Archives</div>
+        <h1 class="site-title">The Digital Library</h1>
+        <div class="site-tagline">Curated Classic Non-Fiction, Reportage, Memoirs &amp; Biographies in Authentic New York Times Typography — English &amp; Hindi Editions.</div>
+    </header>
+
+    <div class="filter-bar">
+        <button class="filter-btn active" onclick="filterCatalog('all', this)">All Books (10)</button>
+        <button class="filter-btn" onclick="filterCatalog('en', this)">English Editions (5)</button>
+        <button class="filter-btn" onclick="filterCatalog('hi', this)">हिंदी संस्करण (4)</button>
+        <button class="filter-btn" onclick="filterCatalog('special', this)">Typography Sandbox (1)</button>
+    </div>
+
+    <main class="catalog-grid" id="catalog">
+        
+        <article class="book-card lang-en">
+            <div class="book-cover-wrap"><img src="No Full Stops in India/images/cover.jpg" alt="No Full Stops in India" class="book-cover-img"/></div>
+            <div class="book-card-body">
+                <div class="card-meta">
+                    <span class="category-kicker">OBSERVATIONAL MEMOIR &amp; REPORTAGE</span>
+                    <span class="lang-pill lang-pill-en">English</span>
+                </div>
+                <h3 class="card-title"><a href="No Full Stops in India/No Full Stops in India.html">No Full Stops in India</a></h3>
+                <div class="card-subtitle">Essays on Indian Society, Culture, and Politics</div>
+                <div class="card-author">By <strong>Mark Tully</strong> &bull; 1991</div>
+                <p class="card-desc">Sir Mark Tully&#x27;s celebrated masterpiece capturing the pulse, contradictions, and enduring spiritual strength of grassroots India—from the Kumbh Mela and Golden Temple to rural elections.</p>
+                <div class="card-badge">Illustrated Edition • 14 Historical Photos &amp; Maps</div>
+                <div class="card-actions">
+                    <a href="No Full Stops in India/No Full Stops in India.html" class="btn-read">📖 Read Online</a> <a href="No Full Stops in India/No Full Stops in India.epub" class="btn-dl" title="Download EPUB">📱 EPUB</a> <a href="No Full Stops in India.pdf" class="btn-dl" title="Download Original PDF">📕 PDF</a> <a href="No Full Stops in India/No Full Stops in India.txt" class="btn-dl" title="Download Plain Text">📄 TXT</a>
+                </div>
+            </div>
+        </article>
+        
+
+        <article class="book-card lang-hi">
+            <div class="book-cover-wrap"><img src="No Full Stops in India - Hindi/images/cover.jpg" alt="नो फुल स्टॉप्स इन इंडिया" class="book-cover-img"/></div>
+            <div class="book-card-body">
+                <div class="card-meta">
+                    <span class="category-kicker">संस्मरण एवं खोजी रपट</span>
+                    <span class="lang-pill lang-pill-hi">हिंदी (Hindustani)</span>
+                </div>
+                <h3 class="card-title"><a href="No Full Stops in India - Hindi/No Full Stops in India - Hindi.html">नो फुल स्टॉप्स इन इंडिया</a></h3>
+                <div class="card-subtitle">भारतीय समाज, संस्कृति और राजनीति पर निबंध</div>
+                <div class="card-author">By <strong>मार्क टली</strong> &bull; 1991</div>
+                <p class="card-desc">मार्क टली की प्रसिद्ध पुस्तक का संपूर्ण एवं प्रवाहपूर्ण अनुवाद। सहज किस्सागोई और आत्मीय शैली में भारत की आत्मा, कुंभ मेले के साधुओं, ऑपरेशन ब्लैक थंडर और आम लोगों के जीवन की अनूठी दास्तान।</p>
+                <div class="card-badge">साहित्यिक हिंदुस्तानी • 14 ऐतिहासिक चित्र व नक्शे</div>
+                <div class="card-actions">
+                    <a href="No Full Stops in India - Hindi/No Full Stops in India - Hindi.html" class="btn-read">📖 Read Online</a> <a href="No Full Stops in India - Hindi/No Full Stops in India - Hindi.epub" class="btn-dl" title="Download EPUB">📱 EPUB</a> <a href="No Full Stops in India - Hindi/No Full Stops in India - Hindi.txt" class="btn-dl" title="Download Plain Text">📄 TXT</a>
+                </div>
+            </div>
+        </article>
+        
+
+        <article class="book-card lang-en">
+            <div class="book-cover-wrap cover-placeholder"><div class="placeholder-letter">EN</div><div class="placeholder-title">Riot after Riot</div></div>
+            <div class="book-card-body">
+                <div class="card-meta">
+                    <span class="category-kicker">INVESTIGATIVE JOURNALISM</span>
+                    <span class="lang-pill lang-pill-en">English</span>
+                </div>
+                <h3 class="card-title"><a href="Riot after Riot/RIOT AFTER RIOT.html">Riot after Riot</a></h3>
+                <div class="card-subtitle">Reports on Caste and Communal Violence in India</div>
+                <div class="card-author">By <strong>M. J. Akbar</strong> &bull; 1988</div>
+                <p class="card-desc">A harrowing, razor-sharp eyewitness account of communal riots, caste massacres, and political turmoil across Moradabad, Jamshedpur, Sarhupur, Meerut, and Darjeeling.</p>
+                <div class="card-badge">Penguin Classic • Unabridged Investigative Dispatches</div>
+                <div class="card-actions">
+                    <a href="Riot after Riot/RIOT AFTER RIOT.html" class="btn-read">📖 Read Online</a> <a href="Riot after Riot/RIOT AFTER RIOT.epub" class="btn-dl" title="Download EPUB">📱 EPUB</a> <a href="Riot after Riot.pdf" class="btn-dl" title="Download Original PDF">📕 PDF</a> <a href="Riot after Riot/RIOT AFTER RIOT.txt" class="btn-dl" title="Download Plain Text">📄 TXT</a>
+                </div>
+            </div>
+        </article>
+        
+
+        <article class="book-card lang-hi">
+            <div class="book-cover-wrap cover-placeholder"><div class="placeholder-letter">HI</div><div class="placeholder-title">दंगे दर दंगे</div></div>
+            <div class="book-card-body">
+                <div class="card-meta">
+                    <span class="category-kicker">खोजी पत्रकारिता</span>
+                    <span class="lang-pill lang-pill-hi">हिंदी (Hindustani)</span>
+                </div>
+                <h3 class="card-title"><a href="Riot after Riot - Hindi/RIOT AFTER RIOT - HINDI.html">दंगे दर दंगे</a></h3>
+                <div class="card-subtitle">भारत में जातिगत और सांप्रदायिक हिंसा पर रपटें</div>
+                <div class="card-author">By <strong>एम. जे. अकबर</strong> &bull; 1988</div>
+                <p class="card-desc">एम. जे. अकबर की चर्चित खोजी किताब का धारदार साहित्यिक हिंदुस्तानी अनुवाद। जमशेदपुर, मुरादाबाद, सरहूपुर और मेरठ के दंगों और जातीय संघर्षों की खौफ़नाक ज़मीनी हक़ीक़त।</p>
+                <div class="card-badge">धारदार साहित्यिक हिंदुस्तानी • संपूर्ण अनुवाद</div>
+                <div class="card-actions">
+                    <a href="Riot after Riot - Hindi/RIOT AFTER RIOT - HINDI.html" class="btn-read">📖 Read Online</a> <a href="Riot after Riot - Hindi/RIOT AFTER RIOT - HINDI.epub" class="btn-dl" title="Download EPUB">📱 EPUB</a> <a href="Riot after Riot - Hindi/RIOT AFTER RIOT - HINDI.txt" class="btn-dl" title="Download Plain Text">📄 TXT</a>
+                </div>
+            </div>
+        </article>
+        
+
+        <article class="book-card lang-en">
+            <div class="book-cover-wrap"><img src="From Sepoy to Subedar/images/frontispiece.png" alt="From Sepoy to Subedar" class="book-cover-img"/></div>
+            <div class="book-card-body">
+                <div class="card-meta">
+                    <span class="category-kicker">MILITARY MEMOIR &amp; HISTORY</span>
+                    <span class="lang-pill lang-pill-en">English</span>
+                </div>
+                <h3 class="card-title"><a href="From Sepoy to Subedar/FROM SEPOY TO SUBEDAR.html">From Sepoy to Subedar</a></h3>
+                <div class="card-subtitle">Being the Life and Adventures of Subedar Sita Ram</div>
+                <div class="card-author">By <strong>Subedar Sita Ram (Trans. Lt.-Col. Norgate)</strong> &bull; 1873</div>
+                <p class="card-desc">The legendary firsthand autobiography of a native soldier in the Bengal Army over forty-eight years of service through the First Afghan War, the Sikh Wars, and the 1857 Uprising.</p>
+                <div class="card-badge">Illustrated • Frank Wilson Drawings</div>
+                <div class="card-actions">
+                    <a href="From Sepoy to Subedar/FROM SEPOY TO SUBEDAR.html" class="btn-read">📖 Read Online</a> <a href="From Sepoy to Subedar/FROM SEPOY TO SUBEDAR.epub" class="btn-dl" title="Download EPUB">📱 EPUB</a> <a href="From Sepoy to Subedar.pdf" class="btn-dl" title="Download Original PDF">📕 PDF</a> <a href="From Sepoy to Subedar/FROM SEPOY TO SUBEDAR.txt" class="btn-dl" title="Download Plain Text">📄 TXT</a>
+                </div>
+            </div>
+        </article>
+        
+
+        <article class="book-card lang-hi">
+            <div class="book-cover-wrap"><img src="From Sepoy to Subedar - Hindi/images/frontispiece.png" alt="सिपाही से सूबेदार" class="book-cover-img"/></div>
+            <div class="book-card-body">
+                <div class="card-meta">
+                    <span class="category-kicker">ऐतिहासिक आत्मकथा</span>
+                    <span class="lang-pill lang-pill-hi">हिंदी (Hindustani)</span>
+                </div>
+                <h3 class="card-title"><a href="From Sepoy to Subedar - Hindi/FROM SEPOY TO SUBEDAR - Hindi.html">सिपाही से सूबेदार</a></h3>
+                <div class="card-subtitle">सूबेदार सीता राम के जीवन और रोमांचक अनुभव</div>
+                <div class="card-author">By <strong>सूबेदार सीता राम</strong> &bull; 1873</div>
+                <p class="card-desc">बंगाल सेना के सूबेदार सीता राम द्वारा अवधी में लिखी गई ऐतिहासिक आत्मकथा का प्रामाणिक अनुवाद। अफ़गान युद्ध, सिख युद्धों और 1857 के ग़दर की आँखों-देखी दास्तान।</p>
+                <div class="card-badge">चित्रमय संस्करण • ऐतिहासिक दस्तावेज़</div>
+                <div class="card-actions">
+                    <a href="From Sepoy to Subedar - Hindi/FROM SEPOY TO SUBEDAR - Hindi.html" class="btn-read">📖 Read Online</a> <a href="From Sepoy to Subedar - Hindi/FROM SEPOY TO SUBEDAR - Hindi.epub" class="btn-dl" title="Download EPUB">📱 EPUB</a> <a href="From Sepoy to Subedar - Hindi/FROM SEPOY TO SUBEDAR - Hindi.txt" class="btn-dl" title="Download Plain Text">📄 TXT</a>
+                </div>
+            </div>
+        </article>
+        
+
+        <article class="book-card lang-en">
+            <div class="book-cover-wrap cover-placeholder"><div class="placeholder-letter">EN</div><div class="placeholder-title">Why the Poor Don&#x27;t Kill U</div></div>
+            <div class="book-card-body">
+                <div class="card-meta">
+                    <span class="category-kicker">CONTEMPORARY ESSAYS</span>
+                    <span class="lang-pill lang-pill-en">English</span>
+                </div>
+                <h3 class="card-title"><a href="Why the Poor Don't Kill Us/WHY THE POOR DON'T KILL US.html">Why the Poor Don&#x27;t Kill Us</a></h3>
+                <div class="card-subtitle">Essays and Dispatches</div>
+                <div class="card-author">By <strong>Manu Joseph</strong> &bull; 2026</div>
+                <p class="card-desc">Brilliant, provocative, and razor-sharp social commentary on class divides, urban absurdities, morality, and modern Indian society.</p>
+                <div class="card-badge">Modern Social Commentary</div>
+                <div class="card-actions">
+                    <a href="Why the Poor Don't Kill Us/WHY THE POOR DON'T KILL US.html" class="btn-read">📖 Read Online</a> <a href="Why the Poor Don't Kill Us/WHY THE POOR DON'T KILL US.epub" class="btn-dl" title="Download EPUB">📱 EPUB</a> <a href="Why the Poor Don't Kill Us/WHY THE POOR DON'T KILL US.pdf" class="btn-dl" title="Download Original PDF">📕 PDF</a> <a href="Why the Poor Don't Kill Us/WHY THE POOR DON'T KILL US.txt" class="btn-dl" title="Download Plain Text">📄 TXT</a>
+                </div>
+            </div>
+        </article>
+        
+
+        <article class="book-card lang-hi">
+            <div class="book-cover-wrap cover-placeholder"><div class="placeholder-letter">HI</div><div class="placeholder-title">ग़रीब हमें क्यों नहीं मार</div></div>
+            <div class="book-card-body">
+                <div class="card-meta">
+                    <span class="category-kicker">व्यंग्य एवं समाज</span>
+                    <span class="lang-pill lang-pill-hi">हिंदी (Hindustani)</span>
+                </div>
+                <h3 class="card-title"><a href="Why the Poor Don't Kill Us - Hindi/WHY THE POOR DON'T KILL US - Hindi.html">ग़रीब हमें क्यों नहीं मार डालते</a></h3>
+                <div class="card-subtitle">समकालीन भारतीय समाज पर चुभते हुए निबंध</div>
+                <div class="card-author">By <strong>मनु जोसेफ़</strong> &bull; 2026</div>
+                <p class="card-desc">भारतीय समाज में वर्ग-भेद, आधुनिक जीवन की विडंबनाओं और नैतिक पाखंड पर मनु जोसेफ़ के तीखे और विचारोत्तेजक निबंधों का हिंदी अनुवाद।</p>
+                <div class="card-badge">व्यंग्यात्मक एवं विचारोत्तेजक</div>
+                <div class="card-actions">
+                    <a href="Why the Poor Don't Kill Us - Hindi/WHY THE POOR DON'T KILL US - Hindi.html" class="btn-read">📖 Read Online</a> <a href="Why the Poor Don't Kill Us - Hindi/WHY THE POOR DON'T KILL US - Hindi.epub" class="btn-dl" title="Download EPUB">📱 EPUB</a> <a href="Why the Poor Don't Kill Us - Hindi/WHY THE POOR DON'T KILL US - Hindi.txt" class="btn-dl" title="Download Plain Text">📄 TXT</a>
+                </div>
+            </div>
+        </article>
+        
+
+        <article class="book-card lang-en">
+            <div class="book-cover-wrap"><img src="Iconoclast/images/img_p001_9.jpeg" alt="Iconoclast" class="book-cover-img"/></div>
+            <div class="book-card-body">
+                <div class="card-meta">
+                    <span class="category-kicker">NEUROSCIENCE &amp; INNOVATION</span>
+                    <span class="lang-pill lang-pill-en">English</span>
+                </div>
+                <h3 class="card-title"><a href="Iconoclast/Iconoclast.html">Iconoclast</a></h3>
+                <div class="card-subtitle">A Neuroscientist Reveals How to Think Differently</div>
+                <div class="card-author">By <strong>Gregory Berns</strong> &bull; 2008</div>
+                <p class="card-desc">An exploration of the neurological secrets of individuals who perform what others say cannot be done: overcoming fear, seeing differently, and conquering social conformity.</p>
+                <div class="card-badge">Complete Edition • Illustrated Figures</div>
+                <div class="card-actions">
+                    <a href="Iconoclast/Iconoclast.html" class="btn-read">📖 Read Online</a> <a href="Iconoclast/Iconoclast.epub" class="btn-dl" title="Download EPUB">📱 EPUB</a> <a href="Iconoclast/Iconoclast.txt" class="btn-dl" title="Download Plain Text">📄 TXT</a>
+                </div>
+            </div>
+        </article>
+        
+
+        <article class="book-card lang-special">
+            <div class="book-cover-wrap cover-placeholder"><div class="placeholder-letter">★</div><div class="placeholder-title">The Typography &amp; Reading </div></div>
+            <div class="book-card-body">
+                <div class="card-meta">
+                    <span class="category-kicker">TYPOGRAPHY LAB</span>
+                    <span class="lang-pill lang-pill-special">Interactive Tool</span>
+                </div>
+                <h3 class="card-title"><a href="typography_preview.html">The Typography &amp; Reading Sandbox</a></h3>
+                <div class="card-subtitle">Interactive Reading Mode &amp; Font Switcher</div>
+                <div class="card-author">By <strong>Antigravity Book Suite</strong> &bull; 2026</div>
+                <p class="card-desc">Interactive typography playground showcasing New York Times Newsreader, Lora, Charter, Martel, and Mukta typefaces with live controls for book density, leading, paper tone, and indents.</p>
+                <div class="card-badge">Live Controls • Side-by-Side Bilingual</div>
+                <div class="card-actions">
+                    <a href="typography_preview.html" class="btn-read">📖 Read Online</a>
+                </div>
+            </div>
+        </article>
+        
+    </main>
+
+    <footer class="site-footer">
+        <div>Curated and formatted with authentic book density (1.35 leading, zero paragraph margin, 1.8em indent) and warm newsprint paper.</div>
+        <div style="margin-top: 6px;">Hosted openly on <a href="https://github.com/manuj8941/books" target="_blank">GitHub Pages</a> &bull; Powered by Antigravity</div>
+    </footer>
+
+    <script>
+        function filterCatalog(category, btn) {
+            document.querySelectorAll('.filter-btn').forEach(b => b.classList.remove('active'));
+            btn.classList.add('active');
+
+            const cards = document.querySelectorAll('.book-card');
+            cards.forEach(card => {
+                if (category === 'all') {
+                    card.style.display = 'flex';
+                } else if (card.classList.contains('lang-' + category)) {
+                    card.style.display = 'flex';
+                } else {
+                    card.style.display = 'none';
+                }
+            });
+        }
+    </script>
+</body>
+</html>

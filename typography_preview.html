@@ -1,0 +1,840 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>The New York Times Typography Experience - Riot after Riot</title>
+    <!-- Google Fonts including NYT authentic types: Newsreader, Libre Franklin, Frank Ruhl Libre, Martel, Noto Serif Devanagari -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Frank+Ruhl+Libre:wght@400;500;700&family=Libre+Franklin:wght@400;500;600;700;800&family=Lora:ital,wght@0,400;0,600;1,400&family=Martel:wght@400;600;700;800&family=Mukta:wght@400;600;700&family=Newsreader:ital,opsz,wght@0,6..72,400;0,6..72,500;0,6..72,600;0,6..72,700;1,6..72,400;1,6..72,600&family=Noto+Serif+Devanagari:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+    <style>
+        /* Base Reset */
+        * { box-sizing: border-box; }
+        :root {
+            --base-font-size: 19px;
+            --base-line-height: 1.45;
+            --para-margin-bottom: 0px;
+            --para-text-indent: 1.8em;
+        }
+
+        body {
+            margin: 0;
+            padding: 0;
+            font-family: system-ui, -apple-system, sans-serif;
+            background-color: #f0f0f0;
+            color: #121212;
+            transition: background-color 0.25s ease, color 0.25s ease;
+        }
+
+        /* Fixed Top Toolbar */
+        #toolbar {
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            background: #ffffff;
+            border-bottom: 1px solid #e2e8f0;
+            box-shadow: 0 4px 14px rgba(0,0,0,0.06);
+            padding: 12px 20px;
+        }
+        .toolbar-inner {
+            max-width: 1250px;
+            margin: 0 auto;
+            display: flex;
+            flex-wrap: wrap;
+            align-items: center;
+            justify-content: space-between;
+            gap: 12px;
+        }
+        .control-group {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            flex-wrap: wrap;
+        }
+        .group-label {
+            font-size: 0.78rem;
+            text-transform: uppercase;
+            font-weight: 700;
+            letter-spacing: 0.05em;
+            color: #64748b;
+            margin-right: 4px;
+        }
+
+        /* Pill Buttons */
+        .btn-pill {
+            background: #f8fafc;
+            border: 1px solid #cbd5e1;
+            padding: 7px 14px;
+            border-radius: 20px;
+            font-size: 0.85rem;
+            font-weight: 600;
+            color: #334155;
+            cursor: pointer;
+            transition: all 0.15s ease;
+            outline: none;
+        }
+        .btn-pill:hover {
+            background: #e2e8f0;
+            border-color: #94a3b8;
+        }
+        .btn-pill.active {
+            background: #121212;
+            border-color: #121212;
+            color: #ffffff;
+            box-shadow: 0 2px 8px rgba(18,18,18,0.3);
+        }
+        .btn-pill.nyt-featured {
+            border: 1.5px solid #121212;
+            background: #fbfaf8;
+            color: #121212;
+        }
+        .btn-pill.nyt-featured.active {
+            background: #121212;
+            color: #ffffff;
+        }
+
+        /* Secondary Options Bar (Enhancements) */
+        #enhancements-panel {
+            background: #f8fafc;
+            border-bottom: 1px solid #e2e8f0;
+            padding: 10px 20px;
+            font-size: 0.82rem;
+        }
+        .enhancements-inner {
+            max-width: 1250px;
+            margin: 0 auto;
+            display: flex;
+            flex-wrap: wrap;
+            align-items: center;
+            justify-content: space-between;
+            gap: 14px;
+        }
+        .toggle-item {
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+            color: #475569;
+        }
+        .toggle-item select {
+            padding: 5px 8px;
+            border-radius: 6px;
+            border: 1px solid #cbd5e1;
+            background: white;
+            font-size: 0.82rem;
+            color: #1e293b;
+            cursor: pointer;
+            font-weight: 500;
+        }
+        .toggle-checkbox {
+            cursor: pointer;
+            accent-color: #121212;
+            width: 16px;
+            height: 16px;
+        }
+
+        /* Reading Canvas Container */
+        #reading-stage {
+            padding: 40px 20px 80px 20px;
+            min-height: 100vh;
+            display: flex;
+            justify-content: center;
+            transition: background-color 0.25s ease;
+        }
+
+        /* Reading Columns */
+        .article-card {
+            background: #ffffff;
+            box-shadow: 0 4px 24px rgba(0,0,0,0.05);
+            border-radius: 4px;
+            padding: 55px 50px;
+            margin: 0 auto;
+            transition: all 0.25s ease;
+            text-align: left;
+        }
+        .bilingual-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 36px;
+            max-width: 1400px;
+            width: 100%;
+        }
+
+        /* ======================================================== */
+        /* FONT THEMES */
+        /* ======================================================== */
+
+        /* THE NEW YORK TIMES SIGNATURE STYLE (OPTION 1) */
+        .font-opt-nyt .lang-en,
+        .font-opt-nyt .lang-en p,
+        .font-opt-nyt .lang-en blockquote {
+            font-family: 'Newsreader', 'Frank Ruhl Libre', Georgia, 'Times New Roman', serif !important;
+            color: #121212;
+        }
+        .font-opt-nyt .lang-en h1,
+        .font-opt-nyt .lang-en h2,
+        .font-opt-nyt .lang-en h3 {
+            font-family: 'Newsreader', 'Frank Ruhl Libre', Georgia, serif !important;
+            font-weight: 700;
+            color: #121212;
+            letter-spacing: -0.015em;
+        }
+        .font-opt-nyt .lang-en .card-kicker,
+        .font-opt-nyt .lang-en .book-subtitle,
+        .font-opt-nyt .lang-en .book-author,
+        .font-opt-nyt .lang-en .dateline,
+        .font-opt-nyt .lang-en .quote-source {
+            font-family: 'Libre Franklin', system-ui, sans-serif !important;
+        }
+
+        /* NYT HINDI COUNTERPART */
+        .font-opt-nyt .lang-hi,
+        .font-opt-nyt .lang-hi p,
+        .font-opt-nyt .lang-hi blockquote {
+            font-family: 'Martel', 'Noto Serif Devanagari', Georgia, serif !important;
+            color: #121212;
+        }
+        .font-opt-nyt .lang-hi h1,
+        .font-opt-nyt .lang-hi h2,
+        .font-opt-nyt .lang-hi h3 {
+            font-family: 'Martel', 'Noto Serif Devanagari', serif !important;
+            font-weight: 800;
+            color: #121212;
+            letter-spacing: -0.01em;
+        }
+        .font-opt-nyt .lang-hi .card-kicker,
+        .font-opt-nyt .lang-hi .book-subtitle,
+        .font-opt-nyt .lang-hi .book-author,
+        .font-opt-nyt .lang-hi .dateline,
+        .font-opt-nyt .lang-hi .quote-source {
+            font-family: 'Mukta', 'Libre Franklin', sans-serif !important;
+        }
+
+        /* CLASSIC LITERARY SERIF (OPTION 2) */
+        .font-opt-2 .lang-en,
+        .font-opt-2 .lang-en p,
+        .font-opt-2 .lang-en blockquote {
+            font-family: 'Lora', Georgia, 'Times New Roman', serif !important;
+        }
+        .font-opt-2 .lang-en h1,
+        .font-opt-2 .lang-en h2,
+        .font-opt-2 .lang-en h3 {
+            font-family: 'Lora', Georgia, serif !important;
+            font-weight: 600;
+        }
+        .font-opt-2 .lang-hi,
+        .font-opt-2 .lang-hi p,
+        .font-opt-2 .lang-hi blockquote {
+            font-family: 'Noto Serif Devanagari', 'Martel', serif !important;
+        }
+        .font-opt-2 .lang-hi h1,
+        .font-opt-2 .lang-hi h2,
+        .font-opt-2 .lang-hi h3 {
+            font-family: 'Noto Serif Devanagari', serif !important;
+            font-weight: 700;
+        }
+
+        /* NATIVE OFFLINE SYSTEM (OPTION 3) */
+        .font-opt-3 .lang-en,
+        .font-opt-3 .lang-en p,
+        .font-opt-3 .lang-en blockquote {
+            font-family: 'Charter', 'Bitstream Charter', 'Sitka Text', Cambria, Georgia, serif !important;
+        }
+        .font-opt-3 .lang-en h1,
+        .font-opt-3 .lang-en h2,
+        .font-opt-3 .lang-en h3 {
+            font-family: 'Charter', 'Sitka Text', Georgia, serif !important;
+        }
+        .font-opt-3 .lang-hi,
+        .font-opt-3 .lang-hi p,
+        .font-opt-3 .lang-hi blockquote {
+            font-family: 'Nirmala UI', 'Mangal', 'Kokila', serif !important;
+        }
+        .font-opt-3 .lang-hi h1,
+        .font-opt-3 .lang-hi h2,
+        .font-opt-3 .lang-hi h3 {
+            font-family: 'Nirmala UI', 'Mangal', serif !important;
+            font-weight: 700;
+        }
+
+        /* ======================================================== */
+        /* THE NEW YORK TIMES COLOR PALETTES */
+        /* ======================================================== */
+        
+        /* 1. NYT Warm Newsprint (#fbfaf8 / #121212) - The exact web reading mode */
+        .theme-nyt-newsprint #reading-stage { background-color: #edebe6; }
+        .theme-nyt-newsprint .article-card { 
+            background-color: #fbfaf8; 
+            color: #121212; 
+            border: 1px solid #e7e5df;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.04);
+        }
+        .theme-nyt-newsprint .chapter-intro {
+            background-color: #f3f1ec !important;
+            border-left: 3px solid #121212 !important;
+            color: #2b2b2b !important;
+        }
+        .theme-nyt-newsprint blockquote.novel-quote {
+            background-color: #f6f4ee !important;
+            border-left: 3px solid #121212 !important;
+            color: #121212 !important;
+        }
+
+        /* 2. NYT Pure White */
+        .theme-white #reading-stage { background-color: #f2f2f2; }
+        .theme-white .article-card { 
+            background-color: #ffffff; 
+            color: #121212; 
+            border: 1px solid #e2e2e2;
+        }
+        .theme-white .chapter-intro {
+            background-color: #f7f7f7 !important;
+            border-left: 3px solid #121212 !important;
+            color: #333333 !important;
+        }
+        .theme-white blockquote.novel-quote {
+            background-color: #fafafa !important;
+            border-left: 3px solid #121212 !important;
+            color: #121212 !important;
+        }
+
+        /* 3. NYT Sepia */
+        .theme-sepia #reading-stage { background-color: #e5dcce; }
+        .theme-sepia .article-card { background-color: #f4eedc; color: #3c3022; border: 1px solid #ded5c2; }
+        .theme-sepia .chapter-intro { background-color: #ede5cf !important; border-left-color: #554433 !important; }
+        .theme-sepia blockquote.novel-quote { background-color: #ede5cf !important; border-left-color: #554433 !important; }
+
+        /* 4. NYT Night / Dark */
+        .theme-dark #reading-stage { background-color: #121212; }
+        .theme-dark .article-card { 
+            background-color: #1b1c1e; 
+            color: #e6e6e6; 
+            border: 1px solid #2a2b2e;
+            box-shadow: 0 4px 28px rgba(0,0,0,0.5);
+        }
+        .theme-dark .chapter-intro { background-color: #242629 !important; color: #cfd4dc !important; border-left-color: #727272 !important; }
+        .theme-dark blockquote.novel-quote { background-color: #242629 !important; color: #ffffff !important; border-left-color: #ffffff !important; }
+        .theme-dark header.book-head { border-bottom-color: #333333 !important; }
+        .theme-dark .nyt-rule { border-bottom-color: #333333 !important; }
+
+        /* ======================================================== */
+        /* NYT STRUCTURAL DETAILS & HAIRLINES */
+        /* ======================================================== */
+        header.book-head {
+            text-align: center;
+            padding-bottom: 24px;
+            margin-bottom: 30px;
+            border-bottom: 1px solid #121212;
+            position: relative;
+        }
+        /* Double hairline signature */
+        header.book-head::after {
+            content: "";
+            position: absolute;
+            left: 0;
+            right: 0;
+            bottom: -4px;
+            height: 1px;
+            background: #121212;
+        }
+        .theme-dark header.book-head::after { background: #444444; }
+
+        h1.book-title {
+            font-size: 2.25rem;
+            margin: 0 0 8px 0;
+            line-height: 1.15;
+            letter-spacing: -0.02em;
+        }
+        .book-subtitle {
+            font-size: 0.88rem;
+            text-transform: uppercase;
+            letter-spacing: 0.12em;
+            color: #666666;
+            margin-bottom: 10px;
+            font-weight: 600;
+        }
+        .book-author {
+            font-size: 0.95rem;
+            color: #333333;
+            font-style: italic;
+        }
+        .theme-dark .book-subtitle { color: #aaaaaa; }
+        .theme-dark .book-author { color: #cccccc; }
+
+        /* NYT Kicker */
+        .card-kicker {
+            font-size: 0.76rem;
+            font-weight: 800;
+            text-transform: uppercase;
+            letter-spacing: 0.14em;
+            color: #727272;
+            margin-bottom: 10px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+        .theme-dark .card-kicker { color: #999999; }
+
+        .nyt-badge {
+            font-size: 0.72rem;
+            font-weight: 700;
+            text-transform: none;
+            letter-spacing: normal;
+            background: #121212;
+            color: #ffffff;
+            padding: 3px 8px;
+            border-radius: 3px;
+        }
+        .theme-dark .nyt-badge { background: #ffffff; color: #121212; }
+
+        h2.chapter-title {
+            font-size: 1.85rem;
+            margin-top: 15px;
+            margin-bottom: 8px;
+            line-height: 1.25;
+            letter-spacing: -0.02em;
+        }
+        .eng-subtag {
+            font-size: 0.95rem;
+            font-style: italic;
+            color: #666666;
+            margin-bottom: 24px;
+        }
+        .theme-dark .eng-subtag { color: #aaaaaa; }
+
+        /* NYT Italic Standfirst / Chapter Intro */
+        .chapter-intro {
+            margin: 24px 0 28px 0;
+            padding: 16px 22px;
+            border-left: 3px solid #121212;
+            border-radius: 0 4px 4px 0;
+            font-style: italic;
+        }
+        .chapter-intro p {
+            margin: 0;
+            font-size: var(--base-font-size);
+            line-height: var(--base-line-height);
+        }
+
+        /* NYT Pullquote / Novel Excerpt */
+        blockquote.novel-quote {
+            margin: 28px 0 28px 24px;
+            padding: 14px 22px;
+            border-left: 3px solid #121212;
+            border-radius: 0 4px 4px 0;
+            font-style: italic;
+        }
+        blockquote.novel-quote p {
+            margin: 0;
+            font-size: var(--base-font-size);
+            line-height: var(--base-line-height);
+        }
+        .quote-source {
+            display: block;
+            margin-top: 12px;
+            font-size: 0.8rem;
+            font-style: normal;
+            text-transform: uppercase;
+            letter-spacing: 0.08em;
+            color: #666666;
+            text-align: right;
+            font-weight: 600;
+        }
+        .theme-dark .quote-source { color: #aaaaaa; }
+
+        /* Body Paragraphs */
+        p.body-p {
+            margin-top: 0;
+            margin-bottom: var(--para-margin-bottom);
+            text-indent: var(--para-text-indent);
+            font-size: var(--base-font-size);
+            line-height: var(--base-line-height);
+        }
+
+        /* Classic Book Rule: The first paragraph of a chapter or after a subhead is never indented */
+        .layout-book p.first-p,
+        .layout-book h3.section-subhead + p.body-p {
+            text-indent: 0 !important;
+        }
+
+        .indent-classic p.body-p {
+            text-indent: 1.8em;
+        }
+        .indent-modern p.body-p {
+            text-indent: 0;
+        }
+
+        /* NYT Classic Drop Cap */
+        .with-dropcap p.first-p::first-letter {
+            float: left;
+            font-size: 4em;
+            line-height: 0.82;
+            padding-top: 6px;
+            padding-right: 12px;
+            padding-bottom: 4px;
+            font-weight: 700;
+            color: #121212;
+        }
+        .theme-dark .with-dropcap p.first-p::first-letter { color: #ffffff; }
+
+        /* Section Subhead */
+        h3.section-subhead {
+            font-size: 1.35rem;
+            margin: 36px 0 14px 0;
+            line-height: 1.3;
+        }
+
+        /* Dateline */
+        .dateline {
+            text-align: right;
+            font-size: 0.82rem;
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+            color: #727272;
+            margin-top: 35px;
+            font-weight: 600;
+            border-top: 1px solid rgba(0,0,0,0.08);
+            padding-top: 12px;
+        }
+        .theme-dark .dateline { border-top-color: rgba(255,255,255,0.1); color: #aaaaaa; }
+
+        /* Measure / Column Widths */
+        .width-narrow .article-card { max-width: 640px; } /* The exact NYT article measure */
+        .width-standard .article-card { max-width: 760px; }
+        .width-wide .article-card { max-width: 900px; }
+    </style>
+</head>
+<body class="theme-nyt-newsprint width-narrow font-opt-nyt layout-book indent-classic with-dropcap">
+<div id="library-nav-bar" style="position: sticky; top: 0; z-index: 9999; background: #121212; color: #ffffff; padding: 10px 20px; display: flex; justify-content: space-between; align-items: center; font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif; font-size: 0.85rem; box-shadow: 0 2px 10px rgba(0,0,0,0.15); border-bottom: 1px solid #333;">
+    <a href="index.html" style="color: #ffffff; text-decoration: none; font-weight: 700; display: inline-flex; align-items: center; gap: 6px;">
+        &larr; Digital Library / मुख्य पुस्तकालय
+    </a>
+    <span style="color: #94a3b8; font-size: 0.78rem; text-transform: uppercase; letter-spacing: 0.08em;">
+        Interactive Typography Sandbox
+    </span>
+</div>
+
+
+    <!-- Primary Toolbar: Options & View -->
+    <div id="toolbar">
+        <div class="toolbar-inner">
+            <!-- Font Style Options -->
+            <div class="control-group">
+                <span class="group-label">Typography Style:</span>
+                <button id="btn-opt-nyt" class="btn-pill nyt-featured active" onclick="setFontOption('nyt')">
+                    ★ The New York Times (Newsreader + Libre Franklin)
+                </button>
+                <button id="btn-opt-2" class="btn-pill" onclick="setFontOption(2)">
+                    Option 2: Lora Literary Serif
+                </button>
+                <button id="btn-opt-3" class="btn-pill" onclick="setFontOption(3)">
+                    Option 3: Charter System Stack
+                </button>
+            </div>
+
+            <!-- View Switcher -->
+            <div class="control-group">
+                <span class="group-label">View:</span>
+                <button id="btn-view-en" class="btn-pill" onclick="setView('en')">English</button>
+                <button id="btn-view-hi" class="btn-pill" onclick="setView('hi')">हिंदी (Hindi)</button>
+                <button id="btn-view-both" class="btn-pill active" onclick="setView('both')">Side-by-Side</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Secondary Toolbar: Subtle Enhancements Toggles -->
+    <div id="enhancements-panel">
+        <div class="enhancements-inner">
+            <!-- Layout Density (Print Book vs Web) -->
+            <div class="toggle-item">
+                <label for="density-select"><strong>Layout Density:</strong></label>
+                <select id="density-select" onchange="setLayoutDensity(this.value)">
+                    <option value="book" selected>📖 Authentic Printed Book (Tight Leading &amp; Zero Paragraph Gap)</option>
+                    <option value="web">🌐 Modern Web Article (Airy Leading &amp; Block Gaps)</option>
+                </select>
+            </div>
+
+            <!-- Line Height (Inter-line gap) -->
+            <div class="toggle-item">
+                <label for="height-select"><strong>Line Gap:</strong></label>
+                <select id="height-select" onchange="setLineHeight(this.value)">
+                    <option value="1.35">1.35 (Dense Book Print)</option>
+                    <option value="1.45" selected>1.45 (Penguin Book Standard)</option>
+                    <option value="1.55">1.55 (Comfortable Book)</option>
+                    <option value="1.68">1.68 (Balanced Screen)</option>
+                    <option value="1.82">1.82 (NYT Web Article)</option>
+                </select>
+            </div>
+
+            <!-- Paragraph Separation Gap -->
+            <div class="toggle-item">
+                <label for="gap-select"><strong>Paragraph Gap:</strong></label>
+                <select id="gap-select" onchange="setParaGap(this.value)">
+                    <option value="0px" selected>0px (Pure Book - Zero Gap)</option>
+                    <option value="8px">8px (Subtle Breath)</option>
+                    <option value="20px">20px (Modern Web Block Gap)</option>
+                </select>
+            </div>
+
+            <!-- Palette / Paper Tone -->
+            <div class="toggle-item">
+                <label for="theme-select"><strong>Paper / Tone:</strong></label>
+                <select id="theme-select" onchange="setTheme(this.value)">
+                    <option value="theme-nyt-newsprint" selected>NYT Warm Newsprint (#FBFAF8 / #121212)</option>
+                    <option value="theme-white">NYT Crisp White (#FFFFFF / #121212)</option>
+                    <option value="theme-sepia">Classic Vintage Sepia (#F4EEDC)</option>
+                    <option value="theme-dark">NYT Night Charcoal (#1B1C1E)</option>
+                </select>
+            </div>
+
+            <!-- Column Width / Measure -->
+            <div class="toggle-item">
+                <label for="width-select"><strong>Width:</strong></label>
+                <select id="width-select" onchange="setWidth(this.value)">
+                    <option value="width-narrow" selected>640px (NYT Book Measure)</option>
+                    <option value="width-standard">760px (Standard)</option>
+                    <option value="width-wide">900px (Wide)</option>
+                </select>
+            </div>
+
+            <!-- Font Size -->
+            <div class="toggle-item">
+                <label for="size-select"><strong>Size:</strong></label>
+                <select id="size-select" onchange="setFontSize(this.value)">
+                    <option value="17px">17px</option>
+                    <option value="19px" selected>19px (Standard Book)</option>
+                    <option value="21px">21px (Large)</option>
+                </select>
+            </div>
+
+            <!-- Drop Cap Toggle -->
+            <div class="toggle-item">
+                <label class="toggle-item">
+                    <input type="checkbox" id="dropcap-toggle" class="toggle-checkbox" checked onchange="toggleDropcap(this.checked)">
+                    <strong>Drop Cap</strong>
+                </label>
+            </div>
+
+            <!-- Paragraph Indent Toggle -->
+            <div class="toggle-item">
+                <label class="toggle-item">
+                    <input type="checkbox" id="indent-toggle" class="toggle-checkbox" checked onchange="toggleIndent(this.checked)">
+                    <strong>Book Indents</strong>
+                </label>
+            </div>
+        </div>
+    </div>
+
+    <!-- Reading Stage -->
+    <main id="reading-stage">
+        <div id="content-container" class="bilingual-grid">
+
+            <!-- English Sample Article (NYT Style) -->
+            <article id="card-en" class="article-card lang-en">
+                <div class="card-kicker">
+                    <span>Special Investigative Dispatch &bull; Chapter XII</span>
+                    <span id="font-badge-en" class="nyt-badge">NYT Newsreader + Libre Franklin</span>
+                </div>
+                
+                <header class="book-head">
+                    <h1 class="book-title">Riot after Riot</h1>
+                    <div class="book-subtitle">Reports on Caste and Communal Violence in India</div>
+                    <div class="book-author">By M. J. Akbar</div>
+                </header>
+
+                <h2 class="chapter-title">The Tyranny of the Failed Artiste</h2>
+                
+                <div class="chapter-intro">
+                    <p>The man who spearheads the Gorkha separatist movement is a retired soldier and a novelist of limited gifts. A profile of Subhas Ghising.</p>
+                </div>
+
+                <blockquote class="novel-quote">
+                    <p>‘It was midnight and all the birds and animals were asleep. In the sky the moon played hide and seek with the clouds. Wrapped in a blanket, Purnima lay crying. Through the window moonlight fell on her face. It was exactly a month today since she had been parted from Kamal. She told herself over and over again that his letter would come today, tomorrow or day after. She carried Kamal in her eyes, and cried; her brother, sleeping in the same room, pretended not to see. Tonight her heart was especially heavy...’</p>
+                    <span class="quote-source">— Subhas Ghising, from the romance novel <em>Neelo Choli (The Blue Choli)</em></span>
+                </blockquote>
+
+                <p class="body-p first-p">Having done absolutely nothing spectacular in his six years with the Indian Army, Subhas Ghising first sought to achieve his obviously powerful need for fame and recognition through writing fiction. Five books were published, of which <em>Neelo Choli</em> (The Blue Choli) became the most famous. As the quotation from this literary effort proves, the writing was unrelieved trash. (One interesting strand that runs through the stories is that Gorkha women tie up their men with bonds of romance and prevent them from fulfilling a higher mission.) As history tells us, there are few greater dangers than the failed artiste giving vent to his frustrated aggression through politics. He found a personal reason for anger too. In 1979, he was evicted from land which he had encroached upon. In 1980, Ghising started an organization called Neelo Jhanda, (Blue Flag) and his first slogan to the Gorkhas was that they were Nepalis and they must protect and preserve this identity. No one took him seriously. But he was tireless and kept travelling from village to village spreading his message, telling the people that they were Gorkhas first, and supporters of the Communists — the CPI(M)—or the Congress second.</p>
+
+                <p class="body-p">He attempted to organize a boycott of the 1984 Parliamentary elections using the slogan ‘No State, no vote,’ but no one listened. There was a partial boycott in only six polling booths, the highest being a twenty-five per cent no-show in Mirik (an area which is currently the most militant). But it was during this time that he came to the attention of the local administration, amid whispers that both the number of young people around him and the cash at his private disposal were growing. However, his rhetoric was still in search of a sufficient audience.</p>
+
+                <h3 class="section-subhead">The Star-Crossed Politician</h3>
+
+                <p class="body-p">Subhas Ghising does nothing without consulting an astrologer. In fact at any meeting where a crucial decision is being made, this astrologer is present and almost inevitably becomes the decision-maker. The astrologer must have told his novelist-politician friend that his stars were going to take a dramatic turn from March. A confluence of events and circumstances suddenly brought about the moment in which the writer of cheap romances could suddenly take his cherished place in the limelight he had sought all his life.</p>
+
+                <div class="dateline">August 1986 &bull; Darjeeling Bureau</div>
+            </article>
+
+            <!-- Hindi Sample Article (NYT Style) -->
+            <article id="card-hi" class="article-card lang-hi">
+                <div class="card-kicker">
+                    <span>विशेष खोजी रपट &bull; अध्याय 12</span>
+                    <span id="font-badge-hi" class="nyt-badge">मार्तेल (Martel) + मुक्त (Mukta)</span>
+                </div>
+                
+                <header class="book-head">
+                    <h1 class="book-title">दंगे दर दंगे</h1>
+                    <div class="book-subtitle">भारत में जातिगत और सांप्रदायिक हिंसा पर रपटें</div>
+                    <div class="book-author">मूल लेखक: एम. जे. अकबर | अनुवाद: साहित्यिक हिंदुस्तानी</div>
+                </header>
+
+                <h2 class="chapter-title">एक नाकाम फ़नकार की तानाशाही</h2>
+                <div class="eng-subtag">(The Tyranny of the Failed Artiste)</div>
+                
+                <div class="chapter-intro">
+                    <p>गोरखा अलगाववादी आंदोलन की कमान थामे बैठा यह शख़्स एक रिटायर फौजी है और मामूली क़ाबलियत वाला उपन्यासकार। सुभाष घीसिंग की एक झलक।</p>
+                </div>
+
+                <blockquote class="novel-quote">
+                    <p>‘आधी रात का वक़्त था, परिंदे और जानवर सब सो चुके थे। आसमान में चाँद बादलों के साथ आँख-मिचौली खेल रहा था। कंबल में लिपटी पूर्णिमा रो रही थी। खिड़की से छनकर आती चाँदनी उसके चेहरे पर पड़ रही थी। कमल से बिछड़े आज ठीक एक महीना हो चुका था। वह खुद को बार-बार तसल्ली देती कि उसका ख़त आज आएगा, कल आएगा या परसों। आँखों में कमल की याद लिए वह रोती रही; उसी कमरे में सो रहा उसका भाई अनदेखा करने का ढोंग करता रहा। आज रात उसका दिल कुछ ज़्यादा ही बोझिल था...’</p>
+                    <span class="quote-source">— सुभाष घीसिंग के उपन्यास <em>'नीली चोली'</em> से उद्धरण</span>
+                </blockquote>
+
+                <p class="body-p first-p">भारतीय सेना में अपने छह साल के कार्यकाल में कोई भी करिश्माई काम न कर पाने वाले सुभाष घीसिंग ने अपनी शोहरत और पहचान की ज़बरदस्त भूख मिटाने के लिए फ़िक्शन लिखने का रास्ता चुना। उनकी पाँच किताबें छपीं, जिनमें 'नीली चोली' सबसे ज़्यादा मशहूर हुई। इस साहित्यिक कोशिश का उद्धरण साबित करता है कि वह लेखन महज़ कूड़ा था। (इन कहानियों में एक दिलचस्प पहलू यह बार-बार उभरता है कि कैसे गोरखा औरतें अपने मर्दों को इश्क़ की ज़ंजीरों में जकड़कर उन्हें किसी बड़े मिशन को पूरा करने से रोक देती हैं।) जैसा कि इतिहास गवाह है, नाकाम कलाकार से ज़्यादा ख़तरनाक शायद ही कोई और हो, जो अपनी कुंठा और वहशीपन को सियासत के ज़रिए बाहर निकालता है। घीसिंग के पास ग़ुस्से की एक निजी वजह भी थी। 1979 में उसे उस ज़मीन से बेदख़ल कर दिया गया था जिस पर उसने क़ब्ज़ा जमा रखा था। 1980 में घीसिंग ने 'नीला झंडा' नाम की एक तंज़ीम बनाई, और गोरखाओं के लिए उसका पहला नारा यह था कि वे नेपाली हैं और उन्हें अपनी इस पहचान की हिफ़ाज़त करनी चाहिए। किसी ने उसे संजीदगी से नहीं लिया। लेकिन वह थका नहीं, लगातार गाँव-गाँव भटककर अपना पैग़ाम फैलाता रहा, लोगों से कहता रहा कि वे पहले गोरखा हैं, और बाद में कम्युनिस्टों—सीपीएम—या कांग्रेस के समर्थक।</p>
+
+                <p class="body-p">उसने 1984 के संसदीय चुनावों के बहिष्कार के लिए 'नो स्टेट, नो वोट' का नारा बुलंद किया, मगर किसी ने कान नहीं धरे। बहिष्कार का असर महज़ छह मतदान केंद्रों तक सिमट कर रह गया, जिसमें सबसे ज़्यादा पच्चीस फ़ीसदी गैर-हाज़िरी मिरिक में रही (जो इलाका आज सबसे ज़्यादा उग्र है)। लेकिन इसी दौर में वह स्थानीय प्रशासन की नज़र में आया, जब यह कानाफूसी शुरू हुई कि उसके इर्द-गिर्द नौजवानों की तादाद और उसके निजी इस्तेमाल में आने वाली रक़म, दोनों तेज़ी से बढ़ रहे हैं। हालाँकि, उसकी बयानबाज़ी अभी भी एक बड़े हुजूम की तलाश में थी।</p>
+
+                <h3 class="section-subhead">सितारों की चाल पर चलने वाला सियासतदां</h3>
+
+                <p class="body-p">सुभाष घीसिंग बिना किसी ज्योतिषी से मशविरा किए कोई क़दम नहीं उठाता। सच तो यह है कि जिस भी बैठक में कोई बड़ा फ़ैसला होना होता है, यह ज्योतिषी वहाँ मौजूद रहता है और तक़रीबन हर बार वही फ़ैसले की धुरी बन जाता है। ज्योतिषी ने अपने इस उपन्यासकार-सियासतदां दोस्त को ज़रूर बताया होगा कि मार्च से उसके सितारे एक नाटकीय मोड़ लेने वाले हैं। वाक़यात और हालात के ऐसे तार जुड़े कि सस्ते रूमानी किस्से लिखने वाले इस लेखक को अचानक वह मुक़ाम हासिल हो गया जिसकी हसरत वह ज़िंदगी भर पालता रहा था।</p>
+
+                <div class="dateline">अगस्त 1986 &bull; दार्जिलिंग ब्यूरो</div>
+            </article>
+
+        </div>
+    </main>
+
+    <!-- Live Interactivity Script -->
+    <script>
+        const body = document.body;
+        const container = document.getElementById('content-container');
+        const cardEn = document.getElementById('card-en');
+        const cardHi = document.getElementById('card-hi');
+        const badgeEn = document.getElementById('font-badge-en');
+        const badgeHi = document.getElementById('font-badge-hi');
+
+        const FONT_INFO = {
+            'nyt': {
+                en: "NYT Newsreader + Libre Franklin",
+                hi: "मार्तेल (Martel) + मुक्त (Mukta)"
+            },
+            '2': {
+                en: "Lora Literary Serif + Playfair",
+                hi: "Noto Serif Devanagari"
+            },
+            '3': {
+                en: "Charter / Sitka (System Serif)",
+                hi: "Nirmala UI / Mangal"
+            }
+        };
+
+        // Font Option Switcher
+        function setFontOption(optKey) {
+            document.querySelectorAll('#toolbar .btn-pill').forEach(b => {
+                if (b.id.startsWith('btn-opt-')) b.classList.remove('active');
+            });
+            document.getElementById(`btn-opt-${optKey}`).classList.add('active');
+
+            body.classList.remove('font-opt-nyt', 'font-opt-2', 'font-opt-3');
+            body.classList.add(`font-opt-${optKey}`);
+
+            badgeEn.textContent = FONT_INFO[optKey].en;
+            badgeHi.textContent = FONT_INFO[optKey].hi;
+        }
+
+        // View Mode Switcher
+        function setView(mode) {
+            document.querySelectorAll('#toolbar .btn-pill').forEach(b => {
+                if (b.id.startsWith('btn-view-')) b.classList.remove('active');
+            });
+            document.getElementById(`btn-view-${mode}`).classList.add('active');
+
+            if (mode === 'en') {
+                container.className = '';
+                cardEn.style.display = 'block';
+                cardHi.style.display = 'none';
+            } else if (mode === 'hi') {
+                container.className = '';
+                cardEn.style.display = 'none';
+                cardHi.style.display = 'block';
+            } else {
+                container.className = 'bilingual-grid';
+                cardEn.style.display = 'block';
+                cardHi.style.display = 'block';
+            }
+        }
+
+        // Theme / Background Color Switcher
+        function setTheme(themeClass) {
+            body.classList.remove('theme-white', 'theme-nyt-newsprint', 'theme-sepia', 'theme-dark');
+            body.classList.add(themeClass);
+        }
+
+        // Width / Measure Switcher
+        function setWidth(widthClass) {
+            body.classList.remove('width-narrow', 'width-standard', 'width-wide');
+            body.classList.add(widthClass);
+        }
+
+        // Font Size using CSS variable
+        function setFontSize(size) {
+            document.documentElement.style.setProperty('--base-font-size', size);
+        }
+
+        // Line Height using CSS variable
+        function setLineHeight(height) {
+            document.documentElement.style.setProperty('--base-line-height', height);
+        }
+
+        // Paragraph Gap using CSS variable
+        function setParaGap(gap) {
+            document.documentElement.style.setProperty('--para-margin-bottom', gap);
+        }
+
+        // Layout Density Preset (Book vs Web)
+        function setLayoutDensity(mode) {
+            const heightSelect = document.getElementById('height-select');
+            const gapSelect = document.getElementById('gap-select');
+            const indentToggle = document.getElementById('indent-toggle');
+
+            if (mode === 'book') {
+                body.classList.remove('layout-web');
+                body.classList.add('layout-book');
+                setLineHeight('1.45');
+                setParaGap('0px');
+                document.documentElement.style.setProperty('--para-text-indent', '1.8em');
+                if (heightSelect) heightSelect.value = '1.45';
+                if (gapSelect) gapSelect.value = '0px';
+                if (indentToggle) indentToggle.checked = true;
+            } else {
+                body.classList.remove('layout-book');
+                body.classList.add('layout-web');
+                setLineHeight('1.82');
+                setParaGap('20px');
+                document.documentElement.style.setProperty('--para-text-indent', '0');
+                if (heightSelect) heightSelect.value = '1.82';
+                if (gapSelect) gapSelect.value = '20px';
+                if (indentToggle) indentToggle.checked = false;
+            }
+        }
+
+        // Drop Cap
+        function toggleDropcap(checked) {
+            if (checked) {
+                body.classList.add('with-dropcap');
+            } else {
+                body.classList.remove('with-dropcap');
+            }
+        }
+
+        // First-Line Indents Toggle
+        function toggleIndent(checked) {
+            if (checked) {
+                document.documentElement.style.setProperty('--para-text-indent', '1.8em');
+            } else {
+                document.documentElement.style.setProperty('--para-text-indent', '0');
+            }
+        }
+    </script>
+</body>
+</html>
